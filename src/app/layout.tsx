@@ -3,7 +3,7 @@ import "@/styles/globals.css";
 import Header from "@/components/Header";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Lato, Playfair_Display } from "next/font/google";
-import { getAllCategories, getFooter } from "@/lib/api";
+import { getAllCategories, getFooter, getHomeBanners } from "@/lib/api";
 import { Category, Footer } from "@/types";
 
 const lato = Lato({

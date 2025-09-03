@@ -1,7 +1,6 @@
 // src/lib/api.ts
 
 import { Banner, Category, Footer } from "@/types";
-import { promises } from "dns";
 
 // interface paginatedBlogs {
 //   blogs: Blog[];

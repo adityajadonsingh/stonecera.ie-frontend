@@ -21,7 +21,7 @@ export interface Banner {
   title: string;
   subtitle: string;
   image: string;
-  alt_text: string;
+  image_alt_text: string;
   enquiry_button_text: string;
 }
 
