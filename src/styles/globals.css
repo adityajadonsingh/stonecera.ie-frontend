@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    @apply transition-all duration-200 ease-in-out;
+  }
+}
+
+
+body {
+  font-family: var(--font-lato), sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair), serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: auto;
+  transition: 0.3s all ease-in;
+}
+input,
+textarea {
+  outline: 0;
+}
+main {
+  position: relative;
+}
+
+.container {
+  padding: 0 16px;
+  margin: 0 auto;
+  max-width: 1320px;
+}
+
+.header {
+  .main-nav {
+    text-transform: capitalize !important;
+  }
+}
+
