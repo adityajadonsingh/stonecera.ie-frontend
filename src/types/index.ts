@@ -33,7 +33,7 @@ export interface Category {
   image_alt_tag: string;
   footer_content: string;
   seo: seoTags;
-  schema: Record<string, any>[];
+  schema: string;
   updatedAt: string;
 }
 
