@@ -37,6 +37,12 @@ export interface Category {
   updatedAt: string;
 }
 
+export interface Testimonal{
+  id: number;
+  name: string;
+  testimonial: string;
+}
+
 export interface Footer {
   phone_number1: string;
   phone_number2: string;
@@ -45,3 +51,8 @@ export interface Footer {
   footer_content: string;
 }
 
+export interface Homepage{
+  banners: Banner[];
+  seo: seoTags;
+  testimonials: Testimonal[];
+}

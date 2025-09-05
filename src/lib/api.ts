@@ -1,6 +1,6 @@
 // src/lib/api.ts
 
-import { Banner, Category, Footer } from "@/types";
+import { Banner, Category, Footer, Homepage } from "@/types";
 
 // interface paginatedBlogs {
 //   blogs: Blog[];
@@ -29,6 +29,13 @@ export async function getHomeBanners(): Promise<Banner[]> {
   const res = await fetch(`${API_URL}/banners`, { next: { revalidate: revalidateTime } });
   if (!res.ok) {
     throw new Error(`Failed to fetch banners: ${res.status} ${res.statusText}`);
+  }
+  return res.json();
+}
+export async function getHomepageData(): Promise<Homepage> {
+  const res = await fetch(`${API_URL}/homepage`, { next: { revalidate: revalidateTime } });
+  if (!res.ok) {
+    throw new Error(`Failed to fetch homepage data: ${res.status} ${res.statusText}`);
   }
   return res.json();
 }

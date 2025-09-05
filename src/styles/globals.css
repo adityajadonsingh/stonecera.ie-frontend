@@ -12,9 +12,12 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  color: #867F54;
   font-family: var(--font-playfair), serif;
 }
-
+p{
+  color: #B2AC88;
+}
 html,
 body {
   margin: 0;
@@ -46,4 +49,46 @@ main {
 .home-banner{
   width: 100%;
   height: 70vh;
+  h2{
+    line-height: 1.3;
+  }
+}
+
+.headingH2{
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.btnType-1{
+  padding: 8px 15px;
+  background-color: #B2AC88;
+  color: #fff;
+  cursor: pointer;
+}
+.btnType-1:hover{
+  background-color: #867F54;
+}
+.testimonials {
+  .swiper-button-prev{
+    width: 40px;
+    height: 40px;
+    background-color: #867F54;
+    border-radius: 100%;
+    left: 32.5%;
+    &::after{
+      font-size: 16px;
+      color: #fff;
+    }
+  }
+  .swiper-button-next{
+    width: 40px;
+    height: 40px;
+    background-color: #867F54;
+    border-radius: 100%;
+    right: 32.5%;
+    &::after{
+      font-size: 16px;
+      color: #fff;
+    }
+  }
 }

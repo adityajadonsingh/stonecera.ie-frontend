@@ -1,12 +1,18 @@
+import AboutUs from "@/components/home/AboutUs";
 import BannerSection from "@/components/home/Banner";
-import { getHomeBanners } from "@/lib/api";
-import { Banner } from "@/types";
+import Testimonials from "@/components/home/Testimonials";
+import TopChoices from "@/components/home/TopChoices";
+import { getHomepageData } from "@/lib/api";
+import { Homepage } from "@/types";
 
 export default async function Home() {
-  const banners: Banner[] = await getHomeBanners();
+  const homepage: Homepage = await getHomepageData();
   return (
     <>
-      <BannerSection banners={banners} />
+      <BannerSection banners={homepage.banners} />
+      <TopChoices />
+      <AboutUs />
+      <Testimonials testimonials={homepage.testimonials} />
     </>
   );
 }

@@ -33,11 +33,12 @@ export default function BannerSection({ banners }: { banners: Banner[] }) {
                 className="w-full h-full z-0 object-cover object-center"
                 fill
               />
-              <div className="content-box relative z-10 flex flex-col text-start justify-center text-white w-5/12 h-full px-10">
-                <h2 className="xl:text-5xl lg:text-3xl md:text-2xl text-xl font-bold mb-3">
+              <div className="container h-full">
+                <div className="content-box relative z-10 flex flex-col text-start justify-center text-white w-7/12 h-full">
+                <h2 className="xl:text-5xl lg:text-3xl md:text-2xl text-xl font-bold mb-3 !text-white">
                   {banner.title}
                 </h2>
-                <p className="mb-4 md:text-lg text-base">{banner.subtitle}</p>
+                <p className="mb-4 md:text-lg text-base !text-white">{banner.subtitle}</p>
                 {/* <button
                   onClick={() => {
                     const el = document.getElementById("contact-section");
@@ -54,6 +55,7 @@ export default function BannerSection({ banners }: { banners: Banner[] }) {
                 >
                   {banner.enquiry_button_text}
                 </button> */}
+              </div>
               </div>
             </div>
           </SwiperSlide>
