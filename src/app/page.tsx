@@ -12,7 +12,7 @@ export default async function Home() {
   console.log(mediaURL);
   return (
     <>
-      <BannerSection banners={homepage.banners} mediaURL={mediaURL} />
+      <BannerSection banners={homepage.banners} />
       <TopChoices />
       <AboutUs />
       <Testimonials testimonials={homepage.testimonials} />
