@@ -7,8 +7,8 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-export default function BannerSection({ banners }: { banners: Banner[] }) {
-    
+export default function BannerSection({ banners, mediaURL }: { banners: Banner[]; mediaURL: string }) {
+
   return (
     <section className="home-banner w-full">
       <Swiper
@@ -28,7 +28,7 @@ export default function BannerSection({ banners }: { banners: Banner[] }) {
           <SwiperSlide key={banner.id} className="relative w-full h-full">
             <div className="w-full h-full z-10  bg-gray-100 text-center relative slide-wraper">
               <Image
-                src={banner.image}
+                src={`${mediaURL}${banner.image}`}
                 alt={banner.image_alt_text ?? "Banner Image"}
                 className="w-full h-full z-0 object-cover object-center"
                 fill

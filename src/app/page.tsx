@@ -8,9 +8,11 @@ import { Homepage } from "@/types";
 
 export default async function Home() {
   const homepage: Homepage = await getHomepageData();
+    const mediaURL = process.env.MEDIA_URL
+  console.log(mediaURL);
   return (
     <>
-      <BannerSection banners={homepage.banners} />
+      <BannerSection banners={homepage.banners} mediaURL={mediaURL} />
       <TopChoices />
       <AboutUs />
       <Testimonials testimonials={homepage.testimonials} />
