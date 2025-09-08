@@ -7,7 +7,7 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-export default function BannerSection({ banners, mediaURL }: { banners: Banner[]; mediaURL: string |  }) {
+export default function BannerSection({ banners, mediaURL }: { banners: Banner[]; mediaURL: string | undefined }) {
   let url:string;
   if (!mediaURL) {
     url="https://admin.stonecera.ie"
