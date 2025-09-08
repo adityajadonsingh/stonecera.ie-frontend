@@ -51,7 +51,7 @@ export default function ContactUs() {
             <h2 className="headingH2 mb-4">Get in Touch With us</h2>
             <p className="mb-6 text-gray-600">
               Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
+              industry. Lorem Ipsum has been the industry&apos;s standard dummy text
               ever since the 1500s, when an unknown printer took a galley of
               type and scrambled it to make a type specimen book.
             </p>
