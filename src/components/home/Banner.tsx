@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 export default function BannerSection({ banners, mediaURL }: { banners: Banner[]; mediaURL: string | undefined }) {
-  let url:string;
+  let url:string | undefined = mediaURL;
   if (!mediaURL) {
     url="https://admin.stonecera.ie"
   }
