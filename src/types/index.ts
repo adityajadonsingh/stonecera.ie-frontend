@@ -43,7 +43,7 @@ export interface Testimonal{
   testimonial: string;
 }
 
-export interface Footer {
+export interface FooterType {
   phone_number1: string;
   phone_number2: string;
   email1: string;

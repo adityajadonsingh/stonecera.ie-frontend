@@ -4,7 +4,8 @@ import Header from "@/components/Header";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Lato, Playfair_Display } from "next/font/google";
 import { getAllCategories, getFooter, getHomeBanners } from "@/lib/api";
-import { Category, Footer } from "@/types";
+import { Category, FooterType } from "@/types";
+import Footer from "@/components/Footer";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -29,15 +30,16 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const allCategories: Category[] = await getAllCategories();
-  const footer: Footer = await getFooter();
+  const footer: FooterType = await getFooter();
   console.log(allCategories);
   return (
     <html lang="en">
       <body
-        className={`${lato.variable} ${playfair.variable}`}
+        className={`${lato.variable} ${playfair.variable} relative`}
       >
         <Header allCategories={allCategories} phone={footer.phone_number1} email={footer.email1} />
         <main>{children}</main>
+        <Footer allCategories={allCategories} phone={footer.phone_number1} email={footer.email1}/>
       </body>
     </html>
   );

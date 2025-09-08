@@ -32,6 +32,7 @@ textarea {
 }
 main {
   position: relative;
+  padding-top: 158px;
 }
 
 .container {
@@ -90,5 +91,16 @@ main {
       font-size: 16px;
       color: #fff;
     }
+  }
+}
+.footer{
+  ul li a{
+    color: #B2AC88;
+  }
+  ul li a:hover{
+    color: #867f54;
+  }
+  .foot-links{
+    width: calc(100% - 17px);
   }
 }

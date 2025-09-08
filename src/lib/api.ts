@@ -1,6 +1,6 @@
 // src/lib/api.ts
 
-import { Banner, Category, Footer, Homepage } from "@/types";
+import { Banner, Category, FooterType, Homepage } from "@/types";
 
 // interface paginatedBlogs {
 //   blogs: Blog[];
@@ -78,7 +78,7 @@ export async function getAllCategories(): Promise<Category[]>{
   }
   return res.json();
 }
-export async function getFooter(): Promise<Footer>{
+export async function getFooter(): Promise<FooterType>{
   const res = await fetch(`${API_URL}/footer`, { next: { revalidate: revalidateTime } });
   if (!res.ok) {
     throw new Error(`Failed to fetch footer: ${res.status} ${res.statusText}`);

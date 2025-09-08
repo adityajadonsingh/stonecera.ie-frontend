@@ -1,5 +1,6 @@
 import AboutUs from "@/components/home/AboutUs";
 import BannerSection from "@/components/home/Banner";
+import ContactUs from "@/components/home/ContactUs";
 import Testimonials from "@/components/home/Testimonials";
 import TopChoices from "@/components/home/TopChoices";
 import { getHomepageData } from "@/lib/api";
@@ -13,6 +14,7 @@ export default async function Home() {
       <TopChoices />
       <AboutUs />
       <Testimonials testimonials={homepage.testimonials} />
+      <ContactUs/>
     </>
   );
 }

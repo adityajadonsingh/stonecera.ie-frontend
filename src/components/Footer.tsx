@@ -1,0 +1,119 @@
+import { Category } from "@/types";
+import Link from "next/link"
+import Image from "next/image";
+
+export default function Footer({ allCategories, phone, email }: { allCategories: Category[]; phone: string; email: string; }) {
+    return (<>
+        <footer className="footer py-10 bg-[#F3F3EB]">
+            <div className="container">
+                <div className="grid grid-cols-4">
+                    <div className="foot-colm">
+                        <h4 className="font-semibold text-xl mb-4">Stonecera</h4>
+                        <ul className="flex flex-col gap-y-2">
+                            <li>
+                                <Link href={"/about-us/"}>About Us</Link>
+                            </li>
+                            <li>
+                                <Link href={"/contact-us/"}>Contact Us</Link>
+                            </li>
+                            <li>
+                                <Link href={"/blogs/"}>Blogs</Link>
+                            </li>
+                            <li>
+                                <Link href={"/product-category/"}>Product Category</Link>
+                            </li>
+                            <li>
+                                <Link href={"/product/"}>Product</Link>
+                            </li>
+                            <li>
+                                <Link href={"/product-catalogue/"}>Product Catalogue</Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="foot-colm">
+                        <h4 className="font-semibold text-xl mb-4">Categories</h4>
+                        <ul className="flex flex-col gap-y-2">
+
+                            {
+                                allCategories.map((category, idx) => {
+                                    return (<li key={`${category.name}+${idx}`}>
+                                        <Link href={`/product-category/${category.slug}/`}>
+                                            {category.name}
+                                        </Link>
+                                    </li>)
+                                })
+                            }
+                        </ul>
+                    </div>
+                    <div className="foot-colm">
+                        <h4 className="font-semibold text-xl mb-4">Contact Us</h4>
+                        <ul className="flex flex-col gap-y-4">
+                            <li className="flex gap-x-2">
+                                <div className="icn bg-[#B2AC88] w-[30px] h-[30px] flex justify-center items-center">
+                                    <Image
+                                        src={"/media/icons/call-footer.png"}
+                                        alt="call-footer"
+                                        width={17}
+                                        height={17}
+                                    />
+                                </div>
+                                <Link className="block foot-links" href={`tel:${phone}`}>{phone}</Link>
+                            </li>
+                            <li className="flex gap-x-2">
+                                <div className="icn bg-[#B2AC88] w-[30px] h-[30px] flex justify-center items-center">
+                                    <Image
+                                        src={"/media/icons/mail-footer.png"}
+                                        alt="mail-footer"
+                                        width={17}
+                                        height={17}
+                                    />
+                                </div>
+                                <Link className="block foot-links" href={`mailto:${email}`}>{email}</Link>
+                            </li>
+                            <li className="flex gap-x-2">
+                                <div className="icn bg-[#B2AC88] w-[30px] h-[30px] flex justify-center items-center">
+                                    <Image
+                                        src={"/media/icons/location.png"}
+                                        alt="location-footer"
+                                        width={17}
+                                        height={15}
+                                    />
+                                </div>
+                                <span className="text-[#B2AC88] foot-links">Demo Address for stonecera Ireland Demo Address for stonecera Ireland</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="foot-colm">
+                        <h4 className="font-semibold text-xl mb-4">Locate Us</h4>
+                        <div className="w-full h-52">
+                            <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093713!2d144.95373631531695!3d-37.81627997975133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f3f42f09%3A0xf577b8c4c4e74b2!2sFederation%20Square!5e0!3m2!1sen!2sin!4v1690456758442!5m2!1sen!2sin"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0, outline: 0 }}
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                        ></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div className="btm-footer mt-5">
+                    <ul className="flex gap-x-4 mb-5">
+                        <li><Link href={"/"}><Image src={"/media/icons/linkedin.png"} alt="linkedin" width={40} height={40} /></Link></li>
+                        <li><Link href={"/"}><Image src={"/media/icons/facebook.png"} alt="linkedin" width={40} height={40} /></Link></li>
+                        <li><Link href={"/"}><Image src={"/media/icons/x.png"} alt="linkedin" width={40} height={40} /></Link></li>
+                        <li><Link href={"/"}><Image src={"/media/icons/insta.png"} alt="linkedin" width={40} height={40} /></Link></li>
+                    </ul>
+                    <ul className="flex gap-x-4 text-[#B2AC88]">
+                        <li><span>@2025 stonecera all rights reserved</span></li>
+                        <li><Link href={"/privacy-policy/"}>Privacy Policy</Link></li>
+                        <li><Link href={"/terms-and-conditions/"}>Terms of use</Link></li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </footer>
+    </>)
+}
