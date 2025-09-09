@@ -30,11 +30,11 @@ export default function PageBanner({ bgImg, bgImgAlt, pageName, breadcrum }: { b
                             breadcrum.map((bread, idx) => {
                                 if (idx == breadcrum.length - 1) {
                                     return (
-                                        <li>{bread.slugName}</li>
+                                        <li key={`bread-${idx}`}>{bread.slugName}</li>
                                     )
                                 }
                                 return (
-                                    <li><Link href={bread.slug}>{bread.slugName}</Link></li>
+                                    <li key={`bread-${idx}`}><Link href={bread.slug}>{bread.slugName}</Link></li>
                                 )
                             })
                         }

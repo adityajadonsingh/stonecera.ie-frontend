@@ -76,3 +76,10 @@ export interface ProductCategory{
   footer: PageFooterContent;
   seo: seoTags;
 }
+
+export interface EnquiryData {
+  name: string;
+  email: string;
+  phone_number: string;
+  message: string;
+}

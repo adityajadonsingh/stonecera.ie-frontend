@@ -1,6 +1,6 @@
 // src/lib/api.ts
 
-import { Banner, Category, FooterType, Homepage, ProductCategory } from "@/types";
+import { Category, EnquiryData, FooterType, Homepage, ProductCategory } from "@/types";
 
 // interface paginatedBlogs {
 //   blogs: Blog[];
@@ -17,7 +17,7 @@ const revalidateTime = 0;
 const PRODUCTS_PER_PAGE = 12;
 const BLOGS_PER_PAGE = 12;
 
-export const sendEnquiry = async (data: any) => {
+export const sendEnquiry = async (data: EnquiryData) => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/enquiry`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
