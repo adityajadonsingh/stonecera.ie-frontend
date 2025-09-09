@@ -48,6 +48,7 @@ export interface FooterType {
   phone_number2: string;
   email1: string;
   email2: string;
+  address: string;
   footer_content: string;
 }
 
@@ -55,4 +56,23 @@ export interface Homepage{
   banners: Banner[];
   seo: seoTags;
   testimonials: Testimonal[];
+}
+
+export interface PageBanner{
+  pageName: string;
+  alt_tag: string;
+  bannerImg: string;
+}
+
+export interface PageFooterContent {
+  footerHeading: string;
+  footerContent: string;
+  footerImg: string;
+  footerImgAlt: string;
+}
+
+export interface ProductCategory{
+  pageBanner: PageBanner;
+  footer: PageFooterContent;
+  seo: seoTags;
 }

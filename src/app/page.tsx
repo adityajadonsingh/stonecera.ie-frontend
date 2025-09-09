@@ -3,17 +3,16 @@ import BannerSection from "@/components/home/Banner";
 import ContactUs from "@/components/home/ContactUs";
 import Testimonials from "@/components/home/Testimonials";
 import TopChoices from "@/components/home/TopChoices";
-import { getHomepageData } from "@/lib/api";
-import { Homepage } from "@/types";
+import { getAllCategories, getHomepageData } from "@/lib/api";
+import { Category, Homepage } from "@/types";
 
 export default async function Home() {
   const homepage: Homepage = await getHomepageData();
-    const mediaURL = process.env.MEDIA_URL
-  console.log(mediaURL);
+  const allCategories: Category[] = await getAllCategories();
   return (
     <>
       <BannerSection banners={homepage.banners} />
-      <TopChoices />
+      <TopChoices allCategories={allCategories} />
       <AboutUs />
       <Testimonials testimonials={homepage.testimonials} />
       <ContactUs/>

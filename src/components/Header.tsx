@@ -30,7 +30,7 @@ export default function Header({
   }, []);
 
   return (
-    <header className="header bg-[#F3F3EB] fixed z-[99999] w-full">
+    <header className={`header bg-[#F3F3EB] fixed z-[99999] w-full ${!showFeatures ? "shadow-md" : "shadow-none"}`}>
       <div className="container">
         <div className="grid py-2 grid-cols-[10%_70%_40%]">
           <div className="logo">
@@ -45,7 +45,7 @@ export default function Header({
             </Link>
           </div>
           <div className="main-nav flex justify-center items-center h-full w-full">
-            <ul className="flex uppercase font-medium justify-center items-center gap-x-4">
+            <ul className="flex font-medium justify-center items-center gap-x-4">
               <li>
                 <Link
                   className="text-[#B2AC88] hover:text-[#867F54]"
@@ -95,7 +95,7 @@ export default function Header({
 
       <div className="category bg-[#B2AC88] py-2">
         <div className="container">
-          <ul className="flex justify-center items-center gap-x-4">
+          <ul className="flex justify-center items-center gap-x-6">
             {allCategories.map((category, idx) => (
               <li key={`${category.name}+${idx}`}>
                 <Link

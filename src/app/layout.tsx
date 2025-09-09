@@ -3,7 +3,7 @@ import "@/styles/globals.css";
 import Header from "@/components/Header";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Lato, Playfair_Display } from "next/font/google";
-import { getAllCategories, getFooter, getHomeBanners } from "@/lib/api";
+import { getAllCategories, getFooter } from "@/lib/api";
 import { Category, FooterType } from "@/types";
 import Footer from "@/components/Footer";
 
@@ -31,7 +31,6 @@ export default async function RootLayout({
 }>) {
   const allCategories: Category[] = await getAllCategories();
   const footer: FooterType = await getFooter();
-  console.log(allCategories);
   return (
     <html lang="en">
       <body
@@ -39,7 +38,7 @@ export default async function RootLayout({
       >
         <Header allCategories={allCategories} phone={footer.phone_number1} email={footer.email1} />
         <main>{children}</main>
-        <Footer allCategories={allCategories} phone={footer.phone_number1} email={footer.email1}/>
+        <Footer allCategories={allCategories} phone={footer.phone_number1} email={footer.email1} address={footer.address}/>
       </body>
     </html>
   );

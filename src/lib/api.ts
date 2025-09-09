@@ -1,6 +1,6 @@
 // src/lib/api.ts
 
-import { Banner, Category, FooterType, Homepage } from "@/types";
+import { Banner, Category, FooterType, Homepage, ProductCategory } from "@/types";
 
 // interface paginatedBlogs {
 //   blogs: Blog[];
@@ -17,21 +17,21 @@ const revalidateTime = 0;
 const PRODUCTS_PER_PAGE = 12;
 const BLOGS_PER_PAGE = 12;
 
-// export async function getHomePageData(): Promise<HomepageContent> {
-//   const res = await fetch(`${API_URL}/homepage-content`, { next: { revalidate: revalidateTime } });
-//   if (!res.ok) {
-//     throw new Error(`Failed to fetch home page content: ${res.status} ${res.statusText}`);
-//   }
-//   return res.json();
-// }
+export const sendEnquiry = async (data: any) => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/enquiry`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
 
-export async function getHomeBanners(): Promise<Banner[]> {
-  const res = await fetch(`${API_URL}/banners`, { next: { revalidate: revalidateTime } });
   if (!res.ok) {
-    throw new Error(`Failed to fetch banners: ${res.status} ${res.statusText}`);
+    throw new Error("Failed to send enquiry");
   }
+
   return res.json();
-}
+};
+
+
 export async function getHomepageData(): Promise<Homepage> {
   const res = await fetch(`${API_URL}/homepage`, { next: { revalidate: revalidateTime } });
   if (!res.ok) {
@@ -39,22 +39,14 @@ export async function getHomepageData(): Promise<Homepage> {
   }
   return res.json();
 }
-
-export async function getAllCategorys(): Promise<Category[]> {
-  try {
-    const res = await fetch(`${API_URL}/categories`, { next: { revalidate: revalidateTime } });
-
-    if (!res.ok) {
-      console.error("Error fetching categories:", res.status, res.statusText);
-      return [];
-    }
-
-    return res.json();
-  } catch (error) {
-    console.error("Failed to fetch categories:", error);
-    return [];
+export async function getProductCategoryPageData(): Promise<ProductCategory> {
+  const res = await fetch(`${API_URL}/product-category`, { next: { revalidate: revalidateTime } });
+  if (!res.ok) {
+    throw new Error(`Failed to fetch product category page data: ${res.status} ${res.statusText}`);
   }
+  return res.json();
 }
+
 // export async function getAllProducts(): Promise<Product[]> {
 //   try {
 //     const res = await fetch(`${API_URL}/products`, { next: { revalidate: revalidateTime } });
@@ -78,6 +70,7 @@ export async function getAllCategories(): Promise<Category[]>{
   }
   return res.json();
 }
+
 export async function getFooter(): Promise<FooterType>{
   const res = await fetch(`${API_URL}/footer`, { next: { revalidate: revalidateTime } });
   if (!res.ok) {

@@ -2,7 +2,7 @@ import { Category } from "@/types";
 import Link from "next/link"
 import Image from "next/image";
 
-export default function Footer({ allCategories, phone, email }: { allCategories: Category[]; phone: string; email: string; }) {
+export default function Footer({ allCategories, phone, email, address }: { allCategories: Category[]; phone: string; email: string; address:string; }) {
     return (<>
         <footer className="footer py-10 bg-[#F3F3EB]">
             <div className="container">
@@ -45,7 +45,7 @@ export default function Footer({ allCategories, phone, email }: { allCategories:
                             }
                         </ul>
                     </div>
-                    <div className="foot-colm">
+                    <div className="foot-colm pr-2">
                         <h4 className="font-semibold text-xl mb-4">Contact Us</h4>
                         <ul className="flex flex-col gap-y-4">
                             <li className="flex gap-x-2">
@@ -79,7 +79,7 @@ export default function Footer({ allCategories, phone, email }: { allCategories:
                                         height={15}
                                     />
                                 </div>
-                                <span className="text-[#B2AC88] foot-links">Demo Address for stonecera Ireland Demo Address for stonecera Ireland</span>
+                                <span className="text-[#B2AC88] foot-links">{address}</span>
                             </li>
                         </ul>
                     </div>

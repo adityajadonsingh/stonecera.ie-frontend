@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { sendEnquiry } from "@/lib/api";
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -25,14 +26,7 @@ export default function ContactUs() {
     setStatus(null);
 
     try {
-      const res = await fetch("http://localhost:1337/api/enquiry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (!res.ok) throw new Error("Failed to send enquiry");
-
+      await sendEnquiry(formData);
       setStatus("Message sent successfully ✅");
       setFormData({ name: "", email: "", phone_number: "", message: "" });
     } catch (err) {
@@ -52,15 +46,11 @@ export default function ContactUs() {
             <p className="mb-6 text-gray-600">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry&apos;s standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book.
+              ever since the 1500s.
             </p>
 
             {/* Form */}
-            <form
-              onSubmit={handleSubmit}
-              className="grid gap-4 rounded-md"
-            >
+            <form onSubmit={handleSubmit} className="grid gap-4 rounded-md">
               <input
                 type="text"
                 name="name"
@@ -101,13 +91,13 @@ export default function ContactUs() {
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-[#a8a17e] text-white py-3 px-6 rounded-md hover:bg-[#8c855f] cursor-pointer transition"
+                className="bg-[#a8a17e] text-white py-3 px-6 hover:bg-[#8c855f] cursor-pointer transition"
               >
                 {loading ? "Sending..." : "Send Message"}
               </button>
               {status && (
                 <p
-                  className={`text-sm mt-2 ${
+                  className={`text-md mt-2 ${
                     status.includes("successfully")
                       ? "text-green-600"
                       : "text-red-600"
@@ -121,11 +111,11 @@ export default function ContactUs() {
 
           <div className="right-side hidden md:block">
             <Image
-              src="/media/demo-3.png" 
+              src="/media/demo-3.png"
               alt="Contact"
               width={600}
               height={400}
-              className="rounded-md object-cover"
+              className="object-cover"
             />
           </div>
         </div>
