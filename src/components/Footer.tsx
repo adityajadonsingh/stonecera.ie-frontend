@@ -20,7 +20,7 @@ export default function Footer({ allCategories, phone, email, address }: { allCa
                                 <Link href={"/blogs/"}>Blogs</Link>
                             </li> */}
                             <li>
-                                <Link href={"/product-category/"}>Product Category</Link>
+                                <Link href={"/brochure/"}>Brochure</Link>
                             </li>
                             <li>
                                 <Link href={"/products/"}>Products</Link>

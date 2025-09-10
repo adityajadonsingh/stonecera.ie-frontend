@@ -45,10 +45,10 @@ export default function Header({
             </Link>
           </div>
           <div className="main-nav flex justify-center items-center h-full w-full">
-            <ul className="flex font-medium justify-center items-center gap-x-4">
+            <ul className="flex font-bold justify-center items-center gap-x-4">
               <li>
                 <Link
-                  className="text-[#B2AC88] hover:text-[#867F54]"
+                  className="hover:text-[#B2AC88] text-[#867F54]"
                   href={"/about-us/"}
                 >
                   About Us
@@ -56,7 +56,7 @@ export default function Header({
               </li>
               <li>
                 <Link
-                  className="text-[#B2AC88] hover:text-[#867F54]"
+                  className="hover:text-[#B2AC88] text-[#867F54]"
                   href={"/products/"}
                 >
                   Products
@@ -64,15 +64,15 @@ export default function Header({
               </li>
               <li>
                 <Link
-                  className="text-[#B2AC88] hover:text-[#867F54]"
-                  href={"/blogs/"}
+                  className="hover:text-[#B2AC88] text-[#867F54]"
+                  href={"/brochure/"}
                 >
-                  Blogs
+                  Brochure
                 </Link>
               </li>
               <li>
                 <Link
-                  className="text-[#B2AC88] hover:text-[#867F54]"
+                  className="hover:text-[#B2AC88] text-[#867F54]"
                   href={"/contact-us/"}
                 >
                   Contact Us
