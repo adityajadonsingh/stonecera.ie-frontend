@@ -13,20 +13,21 @@ export default function Footer({ allCategories, phone, email, address }: { allCa
                             <li>
                                 <Link href={"/about-us/"}>About Us</Link>
                             </li>
-                            <li>
-                                <Link href={"/contact-us/"}>Contact Us</Link>
-                            </li>
+                            
                             {/* <li>
                                 <Link href={"/blogs/"}>Blogs</Link>
-                            </li> */}
-                            <li>
-                                <Link href={"/brochure/"}>Brochure</Link>
-                            </li>
+                                </li> */}
+                                <li>
+                                    <Link href={"/product-category/"}>Product Category</Link>
+                                </li>
                             <li>
                                 <Link href={"/products/"}>Products</Link>
                             </li>
                             <li>
-                                <Link href={"/product-catalogue/"}>Product Catalogue</Link>
+                                <Link href={"/brochure/"}>Brochure</Link>
+                            </li>
+                            <li>
+                                <Link href={"/contact-us/"}>Contact Us</Link>
                             </li>
                         </ul>
                     </div>
@@ -45,7 +46,7 @@ export default function Footer({ allCategories, phone, email, address }: { allCa
                             }
                         </ul>
                     </div>
-                    <div className="foot-colm pr-2">
+                    <div className="foot-colm pr-4">
                         <h4 className="font-semibold text-xl mb-4">Contact Us</h4>
                         <ul className="flex flex-col gap-y-4">
                             <li className="flex gap-x-2">
@@ -79,7 +80,7 @@ export default function Footer({ allCategories, phone, email, address }: { allCa
                                         height={15}
                                     />
                                 </div>
-                                <span className="text-[#B2AC88] foot-links">{address}</span>
+                                <span className="text-[#867f54] foot-links">{address}</span>
                             </li>
                         </ul>
                     </div>
@@ -87,7 +88,7 @@ export default function Footer({ allCategories, phone, email, address }: { allCa
                         <h4 className="font-semibold text-xl mb-4">Locate Us</h4>
                         <div className="w-full h-52">
                             <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093713!2d144.95373631531695!3d-37.81627997975133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f3f42f09%3A0xf577b8c4c4e74b2!2sFederation%20Square!5e0!3m2!1sen!2sin!4v1690456758442!5m2!1sen!2sin"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2458.7235033035936!2d-7.854998187403469!3d51.95723337180196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48436d0e612df11d%3A0x13282b54f18c86f!2s9%20Tallow%20St%2C%20Youghal-Lands%2C%20Youghal%2C%20Co.%20Cork%2C%20P36%20YE14%2C%20Ireland!5e0!3m2!1sen!2sin!4v1757489344543!5m2!1sen!2sin%22"
                             width="100%"
                             height="100%"
                             style={{ border: 0, outline: 0 }}

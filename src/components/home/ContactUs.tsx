@@ -38,7 +38,7 @@ export default function ContactUs({data}:{data:HomeContact}) {
   };
 
   return (
-    <section className="contact-home py-10">
+    <section className="contact-home py-10 scroll-mt-24" id="contact-us">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-[60%_40%] items-center">
           {/* Left Side */}

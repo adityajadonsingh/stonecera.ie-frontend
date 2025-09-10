@@ -6,6 +6,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 
 body {
   font-family: var(--font-lato), sans-serif;
@@ -71,9 +75,9 @@ main {
     height: 100%;
     width: 100%;
     background: #858054;
-background: -webkit-linear-gradient(180deg, rgba(133, 128, 84, 0) 63%, rgba(133, 128, 84, 1) 100%);
-background: -moz-linear-gradient(180deg, rgba(133, 128, 84, 0) 63%, rgba(133, 128, 84, 1) 100%);
-background: linear-gradient(180deg, rgba(133, 128, 84, 0) 63%, rgba(133, 128, 84, 1) 100%);
+background: -webkit-linear-gradient(180deg, rgba(133, 128, 84, 0) 63%, rgba(133, 128, 84, 0.58) 100%);
+background: -moz-linear-gradient(180deg, rgba(133, 128, 84, 0) 63%, rgba(133, 128, 84, 0.58) 100%);
+background: linear-gradient(180deg, rgba(133, 128, 84, 0) 63%, rgba(133, 128, 84, 0.58) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#858054", endColorstr="#858054", GradientType=0);
   }
 }
@@ -130,12 +134,12 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#858054", endC
 
 .footer {
   ul li a {
+    color: #867f54;
+  }
+  ul li a:hover {
     color: #B2AC88;
   }
 
-  ul li a:hover {
-    color: #867f54;
-  }
 
   .foot-links {
     width: calc(100% - 17px);

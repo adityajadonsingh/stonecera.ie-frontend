@@ -85,7 +85,11 @@ export default function Header({
               <i className="bi bi-search cursor-pointer text-xl text-[#B2AC88] hover:text-[#867F54]"></i>
             </div>
             <div className="cta">
-              <button className="bg-[#B2AC88] hover:bg-[#867F54] cursor-pointer text-white py-2 px-5">
+              <button className="bg-[#B2AC88] hover:bg-[#867F54] cursor-pointer text-white py-2 px-5"
+                onClick={() => {
+                  const section = document.getElementById("contact-us");
+                  section?.scrollIntoView({ behavior: "smooth" });
+                }}>
                 Connect with us
               </button>
             </div>
