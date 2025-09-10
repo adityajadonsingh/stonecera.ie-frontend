@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Category } from "@/types";
+import { Category, HomeCategorySilder } from "@/types";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 
@@ -10,18 +10,15 @@ import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-export default function TopChoices({ allCategories }: { allCategories: Category[] }) {
+export default function TopChoices({ allCategories, data }: { allCategories: Category[]; data: HomeCategorySilder }) {
   return (
     <section className="top-choices py-10">
       <div className="container">
         <div className="grid grid-cols-2">
           <div className="left-side">
-            <h2 className="headingH2">Top Choices</h2>
+            <h2 className="headingH2">{data.title}</h2>
             <p className="pt-4">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry&apos;s standard dummy
-              text ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book.
+              {data.subtitle}
             </p>
           </div>
           <div className="right-side flex items-center justify-end">
@@ -59,10 +56,10 @@ export default function TopChoices({ allCategories }: { allCategories: Category[
                       fill
                       className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-[#867f54]/40 transition-opacity duration-300 ease-in-out group-hover:opacity-0"></div>
-                    <span className="absolute text-center w-full px-4 z-10 text-white text-xl font-semibold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                      {category.name}
-                    </span>
+                   <div className="overlay"></div>
+                                            <span className="absolute text-start w-full px-4 z-10 !text-white text-2xl font-medium capitalize bottom-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                                                {category.name}
+                                            </span>
                   </div>
                 </Link>
               </SwiperSlide>

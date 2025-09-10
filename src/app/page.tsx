@@ -12,10 +12,10 @@ export default async function Home() {
   return (
     <>
       <BannerSection banners={homepage.banners} />
-      <TopChoices allCategories={allCategories} />
-      <AboutUs />
+      <TopChoices allCategories={allCategories} data={homepage.categorySlider} />
+      <AboutUs data={homepage.aboutContent} />
       <Testimonials testimonials={homepage.testimonials} />
-      <ContactUs/>
+      <ContactUs data={homepage.contactContent}/>
     </>
   );
 }

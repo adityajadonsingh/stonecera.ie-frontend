@@ -173,7 +173,7 @@ main {
   }
 }
 
-.category-slider {
+.category-slider, .top-choices {
   .overlay {
     position: absolute;
     width: 100%;

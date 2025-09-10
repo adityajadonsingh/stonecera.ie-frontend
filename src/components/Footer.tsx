@@ -16,14 +16,14 @@ export default function Footer({ allCategories, phone, email, address }: { allCa
                             <li>
                                 <Link href={"/contact-us/"}>Contact Us</Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link href={"/blogs/"}>Blogs</Link>
-                            </li>
+                            </li> */}
                             <li>
                                 <Link href={"/product-category/"}>Product Category</Link>
                             </li>
                             <li>
-                                <Link href={"/product/"}>Product</Link>
+                                <Link href={"/products/"}>Products</Link>
                             </li>
                             <li>
                                 <Link href={"/product-catalogue/"}>Product Catalogue</Link>

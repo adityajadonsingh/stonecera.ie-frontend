@@ -1,6 +1,7 @@
+import { HomeAbout } from "@/types"
 import Image from "next/image"
 import Link from "next/link"
-export default function AboutUs(){
+export default function AboutUs({data}:{data: HomeAbout}){
     return (
         <>
             <section className="home-about py-10">
@@ -8,16 +9,16 @@ export default function AboutUs(){
                     <div className="grid grid-cols-2">
                         <div className="img-side min-h-[450px] h-full relative">
                             <Image 
-                                src={"/media/demo-2.png"}
-                                alt="alt"
+                                src={data.image}
+                                alt={data.alt_tag}
                                 fill
                                 className="object-cover"
                             />
                         </div>
                         <div className="content-side pl-8">
-                            <h2 className="headingH2">Discover the perfect blend of Irish craftsmanship and timeless design. At Stonecera, we provide premium natural stone and ceramic solutions</h2>
-                            <p className="pt-4">Welcome to Stonecera Ireland, your destination for exquisite surfaces that define beauty and durability. We are passionate about sourcing the highest quality stone and ceramic from around the world to bring your design visions to life. From the raw power of granite to the delicate elegance of porcelain, our collections are curated to meet the demands of both classic and contemporary Irish homes.</p>
-                            <Link href={"/"}>
+                            <h2 className="headingH2">{data.title}</h2>
+                            <p className="pt-4">{data.description}</p>
+                            <Link href={"/about-us/"}>
                                 <button className="btnType-1 mt-4">Read More <i className="bi bi-arrow-right ml-2"></i></button>
                             </Link>
                             <div className="grid grid-cols-4 mt-8">

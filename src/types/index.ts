@@ -37,10 +37,27 @@ export interface Category {
   updatedAt: string;
 }
 
-export interface Testimonal{
+export interface Testimonal {
   id: number;
   name: string;
   testimonial: string;
+}
+
+export interface HomeAbout {
+  title: string;
+  description: string;
+  image: string;
+  alt_tag: string;
+}
+export interface HomeContact {
+  title: string;
+  sub_heading: string;
+  image: string;
+  alt_tag: string;
+}
+export interface HomeCategorySilder {
+  title: string;
+  subtitle: string;
 }
 
 export interface FooterType {
@@ -52,13 +69,16 @@ export interface FooterType {
   footer_content: string;
 }
 
-export interface Homepage{
+export interface Homepage {
   banners: Banner[];
-  seo: seoTags;
+  categorySlider: HomeCategorySilder;
+  aboutContent: HomeAbout;
+  contactContent: HomeContact;
   testimonials: Testimonal[];
+  seo: seoTags;
 }
 
-export interface PageBanner{
+export interface PageBanner {
   pageName: string;
   alt_tag: string;
   bannerImg: string;
@@ -71,7 +91,7 @@ export interface PageFooterContent {
   footerImgAlt: string;
 }
 
-export interface ProductCategory{
+export interface ProductCategory {
   pageBanner: PageBanner;
   footer: PageFooterContent;
   seo: seoTags;

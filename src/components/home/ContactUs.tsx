@@ -3,8 +3,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import { sendEnquiry } from "@/lib/api";
+import { HomeContact } from "@/types";
 
-export default function ContactUs() {
+export default function ContactUs({data}:{data:HomeContact}) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -42,11 +43,9 @@ export default function ContactUs() {
         <div className="grid grid-cols-1 md:grid-cols-[60%_40%] items-center">
           {/* Left Side */}
           <div className="left-side pr-8">
-            <h2 className="headingH2 mb-4">Get in Touch With us</h2>
+            <h2 className="headingH2 mb-4">{data.title}</h2>
             <p className="mb-6 text-gray-600">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry&apos;s standard dummy text
-              ever since the 1500s.
+              {data.sub_heading}
             </p>
 
             {/* Form */}
@@ -111,8 +110,8 @@ export default function ContactUs() {
 
           <div className="right-side hidden md:block">
             <Image
-              src="/media/demo-3.png"
-              alt="Contact"
+              src={data.image}
+              alt={data.alt_tag}
               width={600}
               height={400}
               className="object-cover"
