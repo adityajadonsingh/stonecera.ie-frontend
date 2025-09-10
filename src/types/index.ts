@@ -35,6 +35,15 @@ export interface Category {
   seo: seoTags;
   schema: string;
   updatedAt: string;
+  products: Product[];
+}
+
+export interface Product{
+  id: number;
+  name: string;
+  slug: string;
+  image: string;
+  image_alt_tag: string;
 }
 
 export interface Testimonal {
@@ -66,7 +75,11 @@ export interface FooterType {
   email1: string;
   email2: string;
   address: string;
-  footer_content: string;
+  instagram_link: string;
+  facebook_link: string;
+  linkedin_link: string;
+  twitter_link: string;
+  pinterest_link: string;
 }
 
 export interface Homepage {

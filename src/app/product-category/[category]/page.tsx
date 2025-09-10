@@ -1,5 +1,6 @@
 
 
+import PageBanner from "@/components/PageBanner";
 import { getCategoryBySlug } from "@/lib/api";
 import { Category } from "@/types";
 import { notFound } from "next/navigation";
@@ -104,7 +105,7 @@ export default async function CategoryPage({
 
   return (
     <>
-      
+      {/* <PageBanner /> */}
       {/* <FooterContent content={category.descriptions} isFullPage={false} /> */}
       {/* <SchemaInjector schemas={safeSchemas}/> */}
     </>

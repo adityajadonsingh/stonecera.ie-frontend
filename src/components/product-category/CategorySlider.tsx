@@ -36,7 +36,7 @@ export default function CategorySlider({ allCategories }: { allCategories: Categ
                         >
                             {allCategories.map((category, idx) => (
                                 <SwiperSlide key={`category-${idx}`}>
-                                    <Link href={"/"}>
+                                    <Link href={`/product-category/${category.slug}/`}>
                                         <div className="card relative h-[450px] group overflow-hidden">
                                             <Image
                                                 src={category.image}

@@ -38,7 +38,7 @@ export default async function RootLayout({
       >
         <Header allCategories={allCategories} phone={footer.phone_number1} email={footer.email1} />
         <main>{children}</main>
-        <Footer allCategories={allCategories} phone={footer.phone_number1} email={footer.email1} address={footer.address}/>
+        <Footer allCategories={allCategories} phone={footer.phone_number1} email={footer.email1} address={footer.address} instagram_link={footer.instagram_link} facebook_link={footer.facebook_link} linkedin_link={footer.linkedin_link} twitter_link={footer.twitter_link} pinterest_link={footer.pinterest_link}/>
       </body>
     </html>
   );

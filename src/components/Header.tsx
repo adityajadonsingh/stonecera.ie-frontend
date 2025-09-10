@@ -65,9 +65,9 @@ export default function Header({
               <li>
                 <Link
                   className="hover:text-[#B2AC88] text-[#867F54]"
-                  href={"/brochure/"}
+                  href={"/brochures/"}
                 >
-                  Brochure
+                  Brochures
                 </Link>
               </li>
               <li>

@@ -79,10 +79,10 @@ export async function getFooter(): Promise<FooterType>{
   return res.json();
 }
 
-export async function getCategoryBySlug(category: string): Promise<Category[]> {
+export async function getCategoryBySlug(category: string): Promise<Category | null> {
   const res = await fetch(`${API_URL}/category/${category}`, { next: { revalidate: revalidateTime } });
   if (!res.ok) {
-    throw new Error(`Failed to fetch single category by slug: ${res.status} ${res.statusText}`);
+    return null;
   }
   return res.json();
 }
