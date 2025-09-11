@@ -25,12 +25,16 @@ export interface Banner {
   enquiry_button_text: string;
 }
 
+
+
 export interface Category {
   id: number;
   name: string;
   slug: string;
   image: string;
   image_alt_tag: string;
+  short_description: string;
+  pageBanner: PageBanner;
   footer_content: string;
   seo: seoTags;
   schema: string;

@@ -15,7 +15,7 @@ export default async function ProductCategoryPage() {
     console.log(getPageData);
     return (
         <>
-            <PageBanner bgImg={getPageData.pageBanner?.bannerImg} bgImgAlt={getPageData.pageBanner?.alt_tag} pageName={getPageData.pageBanner?.pageName} breadcrum={bread} />
+            <PageBanner bgImg={getPageData.pageBanner?.bannerImg} bgImgAlt={getPageData.pageBanner?.alt_tag} pageName={getPageData.pageBanner?.pageName} breadcrum={bread} categoryContent={null}/>
             <CategorySlider allCategories={allCategories} />
             <section className="category-page-footer mb-10">
                 <div className="container">

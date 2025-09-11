@@ -181,7 +181,8 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#858054", endC
 }
 
 .page-banner {
-  height: 28vh;
+  min-height: 28vh;
+  height: 100;
 }
 
 .breadcrum {

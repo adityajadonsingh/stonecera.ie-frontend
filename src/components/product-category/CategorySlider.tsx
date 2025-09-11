@@ -45,7 +45,7 @@ export default function CategorySlider({ allCategories }: { allCategories: Categ
                                                 className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
                                             />
                                             <div className="overlay"></div>
-                                            <span className="absolute text-start w-full px-4 z-10 !text-white text-2xl font-medium capitalize bottom-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                                            <span className="absolute text-center w-full px-4 z-10 !text-white text-xl font-medium capitalize bottom-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
                                                 {category.name}
                                             </span>
                                         </div>

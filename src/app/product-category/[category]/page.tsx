@@ -1,6 +1,7 @@
 
 
 import PageBanner from "@/components/PageBanner";
+import ProductCard from "@/components/product/ProductCard";
 import { getCategoryBySlug } from "@/lib/api";
 import { Category } from "@/types";
 import { notFound } from "next/navigation";
@@ -54,7 +55,13 @@ export default async function CategoryPage({
   const getParams = await params;
   const category = await getCategoryBySlug(getParams.category);
   if (!category) return notFound();
-
+  const bread = [{
+    slugName: "Product Category",
+    slug: "/product-category/"
+  },{
+    slugName: category.name,
+    slug: ""
+  }]
   // const { products, totalPages } = await getProductsByCategory(
   //   getParams.category,
   //   1
@@ -105,7 +112,19 @@ export default async function CategoryPage({
 
   return (
     <>
-      {/* <PageBanner /> */}
+      <PageBanner bgImg={category.pageBanner?.bannerImg} bgImgAlt={category.pageBanner?.alt_tag} pageName={category.name} breadcrum={bread} categoryContent={category.short_description} />
+
+      <section className="product-grid py-10">
+        <div className="container">
+          <div className="grid grid-cols-4 gap-x-4">
+            {
+              category.products.map(product => <ProductCard data={product} key={`prod-${product.id}`} />)
+            }
+            {/* <ProductCard /> */}
+          </div>
+        </div>
+      </section>
+
       {/* <FooterContent content={category.descriptions} isFullPage={false} /> */}
       {/* <SchemaInjector schemas={safeSchemas}/> */}
     </>
