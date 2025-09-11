@@ -48,7 +48,7 @@ export default function TopChoices({ allCategories, data }: { allCategories: Cat
           >
             {allCategories.map((category, idx) => (
               <SwiperSlide key={`category-${idx}`}>
-                <Link href={"/"}>   
+                <Link href={`/product-category/${category.slug}/`}>   
                   <div className="card relative h-[400px] group overflow-hidden">
                     <Image
                       src={category.image}
