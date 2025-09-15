@@ -3,7 +3,6 @@
 import PageBanner from "@/components/PageBanner";
 import ProductCard from "@/components/product/ProductCard";
 import { getCategoryBySlug } from "@/lib/api";
-import { Category } from "@/types";
 import { notFound } from "next/navigation";
 
 // export async function generateStaticParams() {
@@ -116,7 +115,7 @@ export default async function CategoryPage({
 
       <section className="product-grid py-10">
         <div className="container">
-          <div className="grid grid-cols-4 gap-x-4">
+          <div className="grid grid-cols-4 gap-4">
             {
               category.products.map(product => <ProductCard data={product} key={`prod-${product.id}`} />)
             }
