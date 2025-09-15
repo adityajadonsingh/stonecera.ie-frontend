@@ -54,7 +54,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                             <div className="overflow-x-auto">
                                 <table className="w-full border border-[#d1cfb8] text-[#867f54]">
                                     <tbody>
-                                        {productData.attributes.map((item: any) => (
+                                        {productData.attributes.map((item) => (
                                             <tr key={item.id} className="border-b border-[#d1cfb8]">
                                                 <td className="px-3 py-2 font-semibold w-1/3">{item.attribute_name}</td>
                                                 <td className="px-3 py-2">{item.attribute_value}</td>
