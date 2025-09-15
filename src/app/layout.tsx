@@ -6,6 +6,7 @@ import { Lato, Playfair_Display } from "next/font/google";
 import { getAllCategories, getFooter } from "@/lib/api";
 import { Category, FooterType } from "@/types";
 import Footer from "@/components/Footer";
+import Script from "next/script";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -39,6 +40,23 @@ export default async function RootLayout({
     <html lang="en">
       <head>
         <meta name="robots" content="noindex, nofollow" />
+        <Script
+          id="tawk-to"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+              (function(){
+                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                s1.async=true;
+                s1.src='https://embed.tawk.to/68c7f2e4e1f9b31922b2b320/1j56gpjn1';
+                s1.charset='UTF-8';
+                s1.setAttribute('crossorigin','*');
+                s0.parentNode.insertBefore(s1,s0);
+              })();
+            `,
+          }}
+        />
       </head>
       <body
         className={`${lato.variable} ${playfair.variable} relative`}
