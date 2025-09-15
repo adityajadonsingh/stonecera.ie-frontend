@@ -105,6 +105,15 @@ export async function getCategoryBySlug(category: string): Promise<Category | nu
   }
   return res.json();
 }
+
+export async function getAllProducts(): Promise<Product[]> {
+  const res = await fetch(`${API_URL}/products`, { next: { revalidate: revalidateTime } });
+  if (!res.ok) {
+    throw new Error(`Failed to fetch all products: ${res.status} ${res.statusText}`);
+  }
+  return res.json();
+}
+
 export async function getProductBySlug(product: string): Promise<Product | null> {
   const res = await fetch(`${API_URL}/product/${product}`, { next: { revalidate: revalidateTime } });
   if (!res.ok) {
