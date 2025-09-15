@@ -29,7 +29,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     {/* Product Details */}
                     <div className="product-info">
                         <div className="product-bread mb-3">
-                            <ul className="flex gap-x-2 font-semibold text-[#867f54] capitalize">
+                            <ul className="flex flex-nowrap gap-x-2 font-semibold text-[#867f54] capitalize">
                                 <li>
                                     <Link href={"/"}>Home</Link>
                                 </li>
@@ -66,7 +66,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                         </div>
 
                         <button className="bg-[#B2AC88] font-semibold block cursor-pointer mt-4 text-white px-6 py-2 hover:bg-[#867f54] transition">
-                            Inquire Now
+                            Enquire Now
                         </button>
                         <span className="mt-3 text-xs block text-[#b2ac88]">** Image  Shown in Picture might Vary in real , Images are for Visual Purposes only</span>
                     </div>

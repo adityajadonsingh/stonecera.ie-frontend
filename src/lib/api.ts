@@ -18,18 +18,37 @@ const PRODUCTS_PER_PAGE = 12;
 const BLOGS_PER_PAGE = 12;
 
 export const sendEnquiry = async (data: EnquiryData) => {
+  const type = data.product_name ? "product" : "contact";
+
+  const { product_name, ...rest } = data;
+  const cleanedData =
+    product_name === null || product_name === undefined
+      ? rest
+      : { ...rest, product_name };
+
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/enquiry`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
+    body: JSON.stringify(cleanedData),
   });
 
   if (!res.ok) {
     throw new Error("Failed to send enquiry");
   }
 
+  const sendMail = await fetch("/api/sendMail", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ ...cleanedData, type }),
+  });
+
+  if (!sendMail.ok) {
+    throw new Error("Failed to send email");
+  }
+
   return res.json();
 };
+
 
 
 export async function getHomepageData(): Promise<Homepage> {
@@ -63,7 +82,7 @@ export async function getProductCategoryPageData(): Promise<ProductCategory> {
 //   }
 // }
 
-export async function getAllCategories(): Promise<Category[]>{
+export async function getAllCategories(): Promise<Category[]> {
   const res = await fetch(`${API_URL}/categories`, { next: { revalidate: revalidateTime } });
   if (!res.ok) {
     throw new Error(`Failed to fetch all category: ${res.status} ${res.statusText}`);
@@ -71,7 +90,7 @@ export async function getAllCategories(): Promise<Category[]>{
   return res.json();
 }
 
-export async function getFooter(): Promise<FooterType>{
+export async function getFooter(): Promise<FooterType> {
   const res = await fetch(`${API_URL}/footer`, { next: { revalidate: revalidateTime } });
   if (!res.ok) {
     throw new Error(`Failed to fetch footer: ${res.status} ${res.statusText}`);

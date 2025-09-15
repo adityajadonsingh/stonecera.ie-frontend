@@ -1,3 +1,4 @@
+import FooterContent from "@/components/FooterContent";
 import AboutUs from "@/components/home/AboutUs";
 import BannerSection from "@/components/home/Banner";
 import ContactUs from "@/components/home/ContactUs";
@@ -16,6 +17,7 @@ export default async function Home() {
       <AboutUs data={homepage.aboutContent} />
       <Testimonials testimonials={homepage.testimonials} />
       <ContactUs data={homepage.contactContent}/>
+      <FooterContent content={homepage.footerContent} isFullPage={false}/>
     </>
   );
 }

@@ -5,12 +5,13 @@ import Image from "next/image";
 import { sendEnquiry } from "@/lib/api";
 import { HomeContact } from "@/types";
 
-export default function ContactUs({data}:{data:HomeContact}) {
+export default function ContactUs({ data }: { data: HomeContact }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone_number: "",
     message: "",
+    product_name: null
   });
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<string | null>(null);
@@ -29,7 +30,7 @@ export default function ContactUs({data}:{data:HomeContact}) {
     try {
       await sendEnquiry(formData);
       setStatus("Message sent successfully ✅");
-      setFormData({ name: "", email: "", phone_number: "", message: "" });
+      setFormData({ name: "", email: "", phone_number: "", message: "", product_name: null });
     } catch (err) {
       setStatus("Something went wrong ❌");
     } finally {
@@ -96,11 +97,10 @@ export default function ContactUs({data}:{data:HomeContact}) {
               </button>
               {status && (
                 <p
-                  className={`text-md mt-2 ${
-                    status.includes("successfully")
+                  className={`text-md mt-2 ${status.includes("successfully")
                       ? "text-green-600"
                       : "text-red-600"
-                  }`}
+                    }`}
                 >
                   {status}
                 </p>

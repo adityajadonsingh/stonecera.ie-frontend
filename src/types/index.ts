@@ -109,6 +109,7 @@ export interface Homepage {
   aboutContent: HomeAbout;
   contactContent: HomeContact;
   testimonials: Testimonal[];
+  footerContent: string;
   seo: seoTags;
 }
 
@@ -136,4 +137,5 @@ export interface EnquiryData {
   email: string;
   phone_number: string;
   message: string;
+  product_name: string | null | undefined;
 }

@@ -261,3 +261,125 @@ top: 50%;
     }
   }
 }
+
+.prose {
+  img {
+    width: 100%;
+    height: 450px;
+    margin: 20px 0;
+    border-radius: 6px;
+  }
+  h2 {
+    font-size: 16pt;
+  }
+  h3 {
+    font-size: 14pt;
+  }
+  h4 {
+    font-size: 12pt;
+  }
+  h2,
+  h3,
+  h4 {
+    font-weight: 600;
+    margin: 15px 0;
+  }
+  h2 span,
+  h3 span,
+  h4 span{
+    color: #867f54;
+  }
+  p span {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-size: 12pt;
+    color: #888367;
+  }
+  a span {
+    color: #867f54 !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+  }
+  a:hover span {
+    color: #b2ac88 !important;
+  }
+  a {
+    color: #867f54 !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+  }
+  a:hover {
+    color: #b2ac88 !important;
+  }
+  ol,
+  ul {
+    margin-left: 20px;
+  }
+  li::marker{
+    color: #888367;
+  }
+  li span{
+    color: #888367;
+  }
+  ol,
+  ol li {
+    list-style: decimal !important;
+    /* margin-left: 15px; */
+  }
+  ul,
+  ul li {
+    list-style: disc !important;
+    /* margin-left: 15px; */
+  }
+  table {
+    border: 2px solid black;
+    border-spacing: 10px;
+    width: 100% !important;
+    td,
+    th {
+      border: 1px solid gray;
+      padding: 5px 10px;
+      p {
+        padding: 0px;
+      }
+    }
+  }
+}
+
+.pg-des .wrapper .inner-wrapper {
+  padding: 15px 40px 24px;
+  border-radius: 15px;
+}
+
+.pg-des .prose.collapsed {
+  max-height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+.read-btn {
+  background-color: #b2ac88;
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 20px;
+  border-radius: 20px;
+}
+.read-btn:hover {
+  background-color: #b2ac88;
+  color: #fff;
+}
+
+.pg-des .fade-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+background: #F3F3EB;
+background: -webkit-linear-gradient(180deg, rgba(243, 243, 235, 0) 8%, rgba(243, 243, 235, 1) 100%);
+background: -moz-linear-gradient(180deg, rgba(243, 243, 235, 0) 8%, rgba(243, 243, 235, 1) 100%);
+background: linear-gradient(180deg, rgba(243, 243, 235, 0) 8%, rgba(243, 243, 235, 1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#F3F3EB", endColorstr="#F3F3EB", GradientType=0);
+  pointer-events: none;
+  z-index: 10;
+}
