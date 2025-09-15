@@ -319,6 +319,7 @@ top: 50%;
     color: #888367;
   }
   li span{
+    font-size: 12pt !important;
     color: #888367;
   }
   ol,
