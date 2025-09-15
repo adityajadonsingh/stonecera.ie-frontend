@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs } from "swiper/modules";
+import type { Swiper as SwiperClass } from "swiper"; // ✅ import type for swiper instance
 import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -13,15 +14,17 @@ import "yet-another-react-lightbox/styles.css";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
+
 import { ProductImage } from "@/types";
 
 export default function ProductGallery({ images }: { images: ProductImage[] }) {
-    const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+    const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null); // ✅ properly typed
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [lightboxIndex, setLightboxIndex] = useState(0);
 
     return (
         <div className="product-img-box flex gap-4">
+            {/* Thumbnails Swiper */}
             <Swiper
                 onSwiper={setThumbsSwiper}
                 direction="vertical"
@@ -74,15 +77,15 @@ export default function ProductGallery({ images }: { images: ProductImage[] }) {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            
+
             {/* Lightbox */}
             <Lightbox
                 open={lightboxOpen}
                 close={() => setLightboxOpen(false)}
                 index={lightboxIndex}
                 slides={images.map((img) => ({
-                    src: img.url,        
-                    description: img.alt
+                    src: img.url,
+                    description: img.alt,
                 }))}
                 plugins={[Zoom, Thumbnails]}
             />
