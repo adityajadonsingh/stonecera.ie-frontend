@@ -1,6 +1,6 @@
 // src/lib/api.ts
 
-import { Category, EnquiryData, FooterType, Homepage, ProductCategory } from "@/types";
+import { Category, EnquiryData, FooterType, Homepage, Product, ProductCategory } from "@/types";
 
 // interface paginatedBlogs {
 //   blogs: Blog[];
@@ -81,6 +81,13 @@ export async function getFooter(): Promise<FooterType>{
 
 export async function getCategoryBySlug(category: string): Promise<Category | null> {
   const res = await fetch(`${API_URL}/category/${category}`, { next: { revalidate: revalidateTime } });
+  if (!res.ok) {
+    return null;
+  }
+  return res.json();
+}
+export async function getProductBySlug(product: string): Promise<Product | null> {
+  const res = await fetch(`${API_URL}/product/${product}`, { next: { revalidate: revalidateTime } });
   if (!res.ok) {
     return null;
   }

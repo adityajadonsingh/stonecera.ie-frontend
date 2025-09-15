@@ -33,6 +33,7 @@ export default function BannerSection({ banners }: { banners: Banner[];}) {
                 alt={banner.image_alt_text ?? "Banner Image"}
                 className="w-full h-full z-0 object-cover object-center"
                 fill
+                priority
               />
               <div className="container h-full">
                 <div className="content-box relative z-10 flex flex-col pb-5 text-center justify-end items-center m-auto text-white w-9/12 h-full">

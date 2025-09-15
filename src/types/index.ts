@@ -42,12 +42,29 @@ export interface Category {
   products: Product[];
 }
 
-export interface Product{
+export interface ProductImage {
+  url: string;
+  alt: string;
+}
+
+export interface ProductAttribute {
+  id: number;
+  attribute_name: string;
+  attribute_value: string;
+}
+
+export interface Product {
   id: number;
   name: string;
+  description: string;
   slug: string;
+  images: ProductImage[];
   image: string;
   image_alt_tag: string;
+  attributes: ProductAttribute[];
+  updatedAt: string;
+  category: Category;
+  seo: seoTags;
 }
 
 export interface Testimonal {

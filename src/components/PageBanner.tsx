@@ -14,6 +14,7 @@ export default function PageBanner({ bgImg, bgImgAlt, pageName, breadcrum, categ
                     src={bgImg}
                     alt={bgImgAlt}
                     fill
+                    priority
                     className="object-cover z-0"
                 />
                 <div className="container h-full w-full flex justify-center flex-col relative z-10">

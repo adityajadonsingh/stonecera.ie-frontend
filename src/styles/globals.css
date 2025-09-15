@@ -67,7 +67,8 @@ main {
   h2 {
     line-height: 1.3;
   }
-  .overlay{
+
+  .overlay {
     position: absolute;
     z-index: 1;
     top: 0;
@@ -75,10 +76,10 @@ main {
     height: 100%;
     width: 100%;
     background: #858054;
-background: -webkit-linear-gradient(180deg, rgba(133, 128, 84, 0) 63%, rgba(133, 128, 84, 0.58) 100%);
-background: -moz-linear-gradient(180deg, rgba(133, 128, 84, 0) 63%, rgba(133, 128, 84, 0.58) 100%);
-background: linear-gradient(180deg, rgba(133, 128, 84, 0) 63%, rgba(133, 128, 84, 0.58) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#858054", endColorstr="#858054", GradientType=0);
+    background: -webkit-linear-gradient(180deg, rgba(133, 128, 84, 0) 63%, rgba(133, 128, 84, 0.58) 100%);
+    background: -moz-linear-gradient(180deg, rgba(133, 128, 84, 0) 63%, rgba(133, 128, 84, 0.58) 100%);
+    background: linear-gradient(180deg, rgba(133, 128, 84, 0) 63%, rgba(133, 128, 84, 0.58) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#858054", endColorstr="#858054", GradientType=0);
   }
 }
 
@@ -136,6 +137,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#858054", endC
   ul li a {
     color: #867f54;
   }
+
   ul li a:hover {
     color: #B2AC88;
   }
@@ -147,7 +149,8 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#858054", endC
 }
 
 .top-choices,
-.category-slider {
+.category-slider,
+.product-top {
   .swiper-button-prev {
     width: 40px;
     height: 40px;
@@ -191,7 +194,8 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#858054", endC
   }
 }
 
-.category-slider, .top-choices {
+.category-slider,
+.top-choices {
   .overlay {
     position: absolute;
     width: 100%;
@@ -204,5 +208,56 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#858054", endC
     background: -moz-linear-gradient(180deg, rgba(42, 123, 155, 0) 70%, rgba(133, 128, 84, 1) 100%);
     background: linear-gradient(180deg, rgba(42, 123, 155, 0) 70%, rgba(133, 128, 84, 1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2A7B9B", endColorstr="#858054", GradientType=0);
+  }
+}
+
+.product-top {
+  .product-bread {
+    a:hover {
+      color: #B2AC88;
+    }
+  }
+
+  .prod-thumb {
+    .swiper-slide {
+      opacity: 0.7;
+      filter: blur(0.6);
+    }
+
+    .swiper-slide.swiper-slide-thumb-active {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
+  .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 100%;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #867F54;
+
+    &::after {
+      font-size: 16px;
+      color: #fff;
+    }
+  }
+
+  .swiper-button-next {
+    width: 40px;
+    height: 40px;
+    right: 5px;
+    border-radius: 100%;
+top: 50%;
+    transform: translateY(-50%);
+    background-color: #867F54;
+
+    &::after {
+      font-size: 16px;
+      color: #fff;
+    }
   }
 }

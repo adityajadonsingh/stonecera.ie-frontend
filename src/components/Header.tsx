@@ -18,7 +18,7 @@ export default function Header({
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 0) {
+      if (window.scrollY > 90) {
         setShowFeatures(false);
       } else {
         setShowFeatures(true);
@@ -30,7 +30,7 @@ export default function Header({
   }, []);
 
   return (
-    <header className={`header bg-[#F3F3EB] fixed z-[99999] w-full ${!showFeatures ? "shadow-md" : "shadow-none"}`}>
+    <header className={`header bg-[#F3F3EB] fixed z-[999] w-full ${!showFeatures ? "shadow-md" : "shadow-none"}`}>
       <div className="container">
         <div className="grid py-2 grid-cols-[10%_70%_40%]">
           <div className="logo">
@@ -85,7 +85,7 @@ export default function Header({
               <i className="bi bi-search cursor-pointer text-xl text-[#B2AC88] hover:text-[#867F54]"></i>
             </div>
             <div className="cta">
-              <button className="bg-[#B2AC88] hover:bg-[#867F54] cursor-pointer text-white py-2 px-5"
+              <button className="bg-[#B2AC88] hover:bg-[#867F54] cursor-pointer font-semibold text-white py-2 px-5"
                 onClick={() => {
                   const section = document.getElementById("contact-us");
                   section?.scrollIntoView({ behavior: "smooth" });
@@ -114,57 +114,46 @@ export default function Header({
         </div>
       </div>
 
-      {showFeatures && (
-        <div className="header-features py-2 transition-all duration-300">
-          <div className="container">
-            <div className="grid grid-cols-3">
-              <div className="item flex items-center justify-center gap-x-4">
-                <div className="icn">
-                  <Image
-                    src="/media/icons/delivery-header.png"
-                    alt="delivery"
-                    width={44}
-                    height={23}
-                  />
-                </div>
-                <span className="text-[#867F54] font-semibold text-sm">
-                  Nation wide fast delivery
-                </span>
-              </div>
-              <div className="item flex items-center border-l border-r border-[#B2AC88] justify-center gap-x-4">
-                <div className="icn">
-                  <Image
-                    src="/media/icons/call.png"
-                    alt="call"
-                    width={19}
-                    height={19}
-                  />
-                </div>
-                <Link href={`tel:${phone}`}>
-                  <span className="text-[#867F54] font-semibold text-sm">
-                    {phone}
-                  </span>
-                </Link>
-              </div>
-              <div className="item flex items-center justify-center gap-x-4">
-                <div className="icn">
-                  <Image
-                    src="/media/icons/mail.png"
-                    alt="mail"
-                    width={24}
-                    height={17}
-                  />
-                </div>
-                <Link href={`mailto:${email}`}>
-                  <span className="text-[#867F54] font-semibold text-sm">
-                    {email}
-                  </span>
-                </Link>
-              </div>
-            </div>
-          </div>
+<div
+  className={`header-features  transition-all duration-200 overflow-hidden ${
+    showFeatures ? "opacity-100 max-h-20 py-2" : "opacity-0 max-h-0"
+  }`}
+>
+  <div className="container">
+    <div className="grid grid-cols-3">
+      <div className="item flex items-center justify-center gap-x-4">
+        <div className="icn">
+          <Image
+            src="/media/icons/delivery-header.png"
+            alt="delivery"
+            width={44}
+            height={23}
+          />
         </div>
-      )}
+        <span className="text-[#867F54] font-semibold text-sm">
+          Nation wide fast delivery
+        </span>
+      </div>
+      <div className="item flex items-center border-l border-r border-[#B2AC88] justify-center gap-x-4">
+        <div className="icn">
+          <Image src="/media/icons/call.png" alt="call" width={19} height={19} />
+        </div>
+        <Link href={`tel:${phone}`}>
+          <span className="text-[#867F54] font-semibold text-sm">{phone}</span>
+        </Link>
+      </div>
+      <div className="item flex items-center justify-center gap-x-4">
+        <div className="icn">
+          <Image src="/media/icons/mail.png" alt="mail" width={24} height={17} />
+        </div>
+        <Link href={`mailto:${email}`}>
+          <span className="text-[#867F54] font-semibold text-sm">{email}</span>
+        </Link>
+      </div>
+    </div>
+  </div>
+</div>
+
     </header>
   );
 }
