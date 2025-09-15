@@ -46,24 +46,26 @@ export default async function ProductPage({ params }: ProductPageProps) {
                             content={productData.description}
                             className="prose"
                         />
-                        <div className="attributes mt-4 bg-[#f3f3eb] py-4 px-4">
-                            <h2 className="text-[#867f54] font-semibold text-lg mb-3">
-                                Product Attributes
-                            </h2>
+                        {
+                            productData.attributes.length >= 1 && <div className="attributes mt-4 bg-[#f3f3eb] py-4 px-4">
+                                <h2 className="text-[#867f54] font-semibold text-lg mb-3">
+                                    Product Attributes
+                                </h2>
 
-                            <div className="overflow-x-auto">
-                                <table className="w-full border border-[#d1cfb8] text-[#867f54]">
-                                    <tbody>
-                                        {productData.attributes.map((item) => (
-                                            <tr key={item.id} className="border-b border-[#d1cfb8]">
-                                                <td className="px-3 py-2 font-semibold w-1/3">{item.attribute_name}</td>
-                                                <td className="px-3 py-2">{item.attribute_value}</td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
+                                <div className="overflow-x-auto">
+                                    <table className="w-full border border-[#d1cfb8] text-[#867f54]">
+                                        <tbody>
+                                            {productData.attributes.map((item) => (
+                                                <tr key={item.id} className="border-b border-[#d1cfb8]">
+                                                    <td className="px-3 py-2 font-semibold w-1/3">{item.attribute_name}</td>
+                                                    <td className="px-3 py-2">{item.attribute_value}</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                        </div>
+                        }
 
                         <button className="bg-[#B2AC88] font-semibold block cursor-pointer mt-4 text-white px-6 py-2 hover:bg-[#867f54] transition">
                             Enquire Now
