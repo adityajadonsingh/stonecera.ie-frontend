@@ -296,20 +296,20 @@ top: 50%;
     color: #888367;
   }
   a span {
-    color: #867f54 !important;
+    color: #cf964f !important;
     text-decoration: none !important;
     font-weight: 700 !important;
   }
   a:hover span {
-    color: #b2ac88 !important;
+    color: #8b855b !important;
   }
   a {
-    color: #867f54 !important;
+    color: #cf964f !important;
     text-decoration: none !important;
     font-weight: 700 !important;
   }
   a:hover {
-    color: #b2ac88 !important;
+    color: #8b855b !important;
   }
   ol,
   ul {
