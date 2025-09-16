@@ -118,11 +118,11 @@ export default function Footer({ allCategories, phone, email, address, instagram
             </div>
         </footer>
         <div className="whatsapp-float">
-            <a href="https://wa.me/+447467648124" target="_blank">
+            <Link href="https://wa.me/+447467648124" target="_blank">
                 <div className="icn">
                     <i className="bi bi-whatsapp"></i>
                 </div>
-            </a>
+            </Link>
         </div>
     </>)
 }

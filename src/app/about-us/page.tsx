@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import PageBanner from "@/components/PageBanner";
 import { getAboutPageData, getRandomProducts } from "@/lib/api";
 import ProductSlider from "@/components/ProductSlider";
@@ -51,15 +52,15 @@ export default async function AboutUsPage() {
               <h2 className="headingH2">Top Choices</h2>
               <p className="pt-4">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
+                industry. Lorem Ipsum has been the industrys standard dummy
                 text ever since the 1500s, when an unknown printer took a galley
                 of type and scrambled it to make a type specimen book.
               </p>
             </div>
             <div className="right-side flex items-center justify-end">
-              <a href="/product-category/">
+              <Link href="/product-category/">
                 <button className="btnType-1">Explore All Categories</button>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="grid grid-cols-4 mt-8 gap-5">
@@ -68,28 +69,28 @@ export default async function AboutUsPage() {
                     <Image src={"/media/about/durable.png"} alt="durable" width={50} height={50}/>
                 </div>
                 <span className="block pt-5 pb-3 text-xl font-semibold">Highly Durable</span>
-                <p className="!text-white"> From our humble beginnings, we've grown into a team of passionate creatives, strategists, and technologists dedicated to bringing visions to life.</p>
+                <p className="!text-white"> From our humble beginnings, weve grown into a team of passionate creatives, strategists, and technologists dedicated to bringing visions to life.</p>
             </div>
             <div className="card text-center min-h-[300px] flex flex-col justify-center items-center p-2 text-white bg-[#867F54]">
                 <div className="icn flex justify-center items-center border-1 border-white w-[78px] h-[78px]">
                     <Image src={"/media/about/time.png"} alt="durable" width={40} height={50}/>
                 </div>
                 <span className="block pt-5 pb-3 text-xl font-semibold">Timely service</span>
-                <p className="!text-white"> From our humble beginnings, we've grown into a team of passionate creatives, strategists, and technologists dedicated to bringing visions to life.</p>
+                <p className="!text-white"> From our humble beginnings, weve grown into a team of passionate creatives, strategists, and technologists dedicated to bringing visions to life.</p>
             </div>
             <div className="card text-center min-h-[300px] flex flex-col justify-center items-center p-2 text-white bg-[#867F54]">
                 <div className="icn flex justify-center items-center border-1 border-white w-[78px] h-[78px]">
                     <Image src={"/media/about/price.png"} alt="durable" width={45} height={50}/>
                 </div>
                 <span className="block pt-5 pb-3 text-xl font-semibold">Affordable price</span>
-                <p className="!text-white"> From our humble beginnings, we've grown into a team of passionate creatives, strategists, and technologists dedicated to bringing visions to life.</p>
+                <p className="!text-white"> From our humble beginnings, weve grown into a team of passionate creatives, strategists, and technologists dedicated to bringing visions to life.</p>
             </div>
             <div className="card text-center min-h-[300px] flex flex-col justify-center items-center p-2 text-white bg-[#867F54]">
                 <div className="icn flex justify-center items-center border-1 border-white w-[78px] h-[78px]">
                     <Image src={"/media/about/quality.png"} alt="durable" width={42} height={50}/>
                 </div>
                 <span className="block pt-5 pb-3 text-xl font-semibold">Ensured Quality</span>
-                <p className="!text-white"> From our humble beginnings, we've grown into a team of passionate creatives, strategists, and technologists dedicated to bringing visions to life.</p>
+                <p className="!text-white"> From our humble beginnings, weve grown into a team of passionate creatives, strategists, and technologists dedicated to bringing visions to life.</p>
             </div>
           </div>
         </div>
