@@ -1,6 +1,6 @@
 // src/lib/api.ts
 
-import { AboutPage, Category, EnquiryData, FooterType, Homepage, Product, ProductCategory } from "@/types";
+import { AboutPage, Category, EnquiryData, FooterType, Homepage, Product, ProductCategory, Review } from "@/types";
 
 
 const API_URL = process.env.API_URL!;
@@ -101,6 +101,21 @@ export async function getRandomProducts(count: number = 10): Promise<Product[]> 
   return shuffleArray(products).slice(0, count);
 }
 
+export async function getRelatedProducts(
+  categorySlug: string,
+  currentProductId: number,
+  limit: number = 5
+): Promise<Product[]> {
+  const category: Category | null = await getCategoryBySlug(categorySlug);
+  if (!category || !category.products) return [];
+
+  const filtered = category.products.filter(
+    (p) => p.id !== currentProductId
+  );
+
+  return filtered.slice(0, limit);
+}
+
 function shuffleArray<T>(array: T[]): T[] {
   const arr = [...array];
   for (let i = arr.length - 1; i > 0; i--) {
@@ -119,6 +134,61 @@ export async function getProductBySlug(product: string): Promise<Product | null>
 }
 
 
+
+export async function getProductReviews(productId: number): Promise<Review[]> {
+  if (!productId) throw new Error("productId is required");
+
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/reviews/${productId}`, { cache: "no-store" });
+
+  if (!res.ok) {
+    const err = await res.text();
+    console.error("❌ Review fetch failed:", res.status, err);
+    throw new Error("Failed to fetch reviews");
+  }
+
+  const data = await res.json();
+
+  return data.map((r: Review) => ({
+    id: r.id,
+    name: r.name,
+    email: r.email,
+    comment: r.comment,
+    rating: r.rating,
+    createdAt: r.createdAt,
+  }));
+}
+
+
+
+
+// Submit Review
+export async function submitReview(review: {
+  name: string;
+  email: string;
+  comment: string;
+  rating: number;
+  productId: number;
+}) {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/reviews`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+        name: review.name,
+        email: review.email,
+        comment: review.comment,
+        rating: review.rating,
+        product: review.productId, // relation by ID
+    }),
+  });
+
+  if (!res.ok) {
+    const err = await res.text();
+    console.error("❌ Review submit failed:", res.status, err);
+    throw new Error("Failed to submit review");
+  }
+
+  return res.json();
+}
 
 
 

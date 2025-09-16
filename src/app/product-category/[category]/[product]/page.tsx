@@ -1,8 +1,10 @@
 import ProductGallery from "@/components/product/ProductGallery";
-import { getProductBySlug } from "@/lib/api";
+import { getProductBySlug, getRelatedProducts } from "@/lib/api";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import HtmlContent from "@/components/HtmlContent";
+import ReviewSection from "@/components/product/ReviewSection";
+import ProductSlider from "@/components/ProductSlider";
 
 interface ProductPageProps {
     params: Promise<{ category: string; product: string }>;
@@ -11,15 +13,16 @@ interface ProductPageProps {
 export default async function ProductPage({ params }: ProductPageProps) {
     const { category, product } = await params;
     const productData = await getProductBySlug(product);
-
     if (
         category !== productData?.category.slug ||
         product !== productData.slug
     ) {
         return notFound();
     }
+    const related = await getRelatedProducts(category, productData?.id, 5);
 
     return (
+        <>
         <section className="product-top py-10">
             <div className="container mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -75,5 +78,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 </div>
             </div>
         </section>
+        <ReviewSection slug={productData.slug} productId={productData.id} />
+        <ProductSlider title="Similar Products" products={related}/>
+        </>
     );
 }

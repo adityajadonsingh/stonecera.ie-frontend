@@ -144,3 +144,12 @@ export interface EnquiryData {
   message: string;
   product_name: string | null | undefined;
 }
+
+export interface Review {
+  id: number;
+  name: string;
+  email: string;
+  comment: string;
+  rating: number;
+  createdAt: string;
+}
