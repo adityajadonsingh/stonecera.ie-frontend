@@ -113,6 +113,11 @@ export interface Homepage {
   seo: seoTags;
 }
 
+export interface AboutPage{
+  pageBanner: PageBanner;
+  seo: seoTags;
+}
+
 export interface PageBanner {
   pageName: string;
   alt_tag: string;

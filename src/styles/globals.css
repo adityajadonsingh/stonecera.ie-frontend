@@ -150,7 +150,7 @@ main {
 
 .top-choices,
 .category-slider,
-.product-top {
+.product-top, .product-slider {
   .swiper-button-prev {
     width: 40px;
     height: 40px;

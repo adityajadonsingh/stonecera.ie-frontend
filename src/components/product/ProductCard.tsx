@@ -4,7 +4,7 @@ import { Product } from "@/types"
 export default function ProductCard({data}:{data:Product}) {
     return (
         <>
-            <Link href={data.slug}>
+            <Link href={`/product-category/${data.category?.slug}/${data.slug}/`}>
                 <div className="card group">
                     <div className="img-box h-[300px] relative overflow-hidden">
                         <Image
