@@ -1,5 +1,6 @@
 
 
+import FooterContent from "@/components/FooterContent";
 import PageBanner from "@/components/PageBanner";
 import ProductCard from "@/components/product/ProductCard";
 import { getCategoryBySlug } from "@/lib/api";
@@ -123,7 +124,7 @@ export default async function CategoryPage({
           </div>
         </div>
       </section>
-
+      <FooterContent content={category.footer_content} isFullPage={false}/>
       {/* <FooterContent content={category.descriptions} isFullPage={false} /> */}
       {/* <SchemaInjector schemas={safeSchemas}/> */}
     </>
