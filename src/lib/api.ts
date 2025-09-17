@@ -1,6 +1,6 @@
 // src/lib/api.ts
 
-import { AboutPage, Category, EnquiryData, FooterType, Homepage, LegalPage, Product, ProductCategory, Review } from "@/types";
+import { AboutPage, BrochurePage, Category, EnquiryData, FooterType, Homepage, LegalPage, Product, ProductCategory, Review } from "@/types";
 
 
 const API_URL = process.env.API_URL!;
@@ -196,12 +196,12 @@ export async function getLegalPageContent(
   pageType: string
 ): Promise<string | null> {
   try {
-    const res = await fetch("http://localhost:1337/api/legal-pages", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/legal-pages`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
-      next: { revalidate: 60 }, // cache for 1 minute
+      next: { revalidate: revalidateTime },
     });
 
     if (!res.ok) {
@@ -219,4 +219,12 @@ export async function getLegalPageContent(
     console.error("Error fetching legal page:", error);
     return null;
   }
+}
+
+export async function getBrochurePage(): Promise<BrochurePage> {
+  const res = await fetch(`${API_URL}/brochure`, { next: { revalidate: revalidateTime } });
+  if (!res.ok) {
+    throw new Error(`Failed to fetch brochure: ${res.status} ${res.statusText}`);
+  }
+  return res.json();
 }

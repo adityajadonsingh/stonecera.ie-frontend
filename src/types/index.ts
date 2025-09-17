@@ -160,3 +160,23 @@ export interface LegalPage {
   updatedAt: string;
   publishedAt: string;
 }
+interface PDF{
+  id: number;
+  url: string;
+  name: string;
+}
+interface Thumbnail{
+  id: number;
+  url: string;
+}
+interface Brochure{
+  id: number;
+  brochure_name: string;
+  pdf: PDF;
+  thumbnail_image: Thumbnail;
+}
+export interface BrochurePage{
+  pageBanner: PageBanner;
+  brochures: Brochure[];
+  seo: seoTags;
+}

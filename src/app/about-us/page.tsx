@@ -21,17 +21,13 @@ export default async function AboutUsPage() {
         <div className="container">
           <div className="grid grid-cols-[55%_40%]">
             <div className="content pr-10 flex flex-col justify-center">
-              <h2 className="headingH2">Lorem, ipsum dolor.</h2>
+              <h2 className="headingH2">Who we are?</h2>
               <p className="py-2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Temporibus iure quia eveniet quos qui fuga fugiat! Architecto
-                atque dolorem reiciendis, tenetur aperiam vitae alias molestiae
-                numquam quo rerum. Eaque, impedit.
+                Stonecera is a trusted stone supplier in Ireland, offering an expertly curated range of natural and engineered stones to enhance living spaces, gardens, and commercial projects. Our collection includes cobblestone paving, sandstone paving, outdoor porcelain tiles, porcelain paving, and porcelain plank tiles. 
+
               </p>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
-                autem eveniet nihil, reiciendis similique amet voluptatibus
-                quisquam voluptatem optio. Dolorem!
+                All designed to combine timeless beauty with long-lasting strength.  With deep industry expertise and a passion for quality, we help homeowners, architects, and businesses bring their design vision to life. 
               </p>
             </div>
             <div className="img-box relative h-[400px] w-full">
@@ -49,12 +45,9 @@ export default async function AboutUsPage() {
         <div className="container">
           <div className="grid grid-cols-2">
             <div className="left-side">
-              <h2 className="headingH2">Top Choices</h2>
+              <h2 className="headingH2">Why Choose Stonecera?</h2>
               <p className="pt-4">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industrys standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.
+                At Stoncera, we strongly believe in going beyond just supplying stones! We deliver quality, trust, and timeless beauty. Our commitment ensures that every customer in Ireland receives highly durable material, professional guidance, and the timeless elegance of natural stones. 
               </p>
             </div>
             <div className="right-side flex items-center justify-end">
@@ -64,33 +57,33 @@ export default async function AboutUsPage() {
             </div>
           </div>
           <div className="grid grid-cols-4 mt-8 gap-5">
-            <div className="card text-center min-h-[300px] flex flex-col justify-center items-center p-2 text-white bg-[#867F54]">
+            <div className="card text-center min-h-[300px] flex flex-col justify-center items-center px-2 py-6 text-white bg-[#867F54]">
                 <div className="icn flex justify-center items-center border-1 border-white w-[78px] h-[78px]">
                     <Image src={"/media/about/durable.png"} alt="durable" width={50} height={50}/>
                 </div>
-                <span className="block pt-5 pb-3 text-xl font-semibold">Highly Durable</span>
-                <p className="!text-white"> From our humble beginnings, weve grown into a team of passionate creatives, strategists, and technologists dedicated to bringing visions to life.</p>
+                <span className="block pt-5 pb-3 text-xl font-semibold">Versatile Range</span>
+                <p className="!text-white">Discover natural stone, porcelain, cladding, and paving solutions carefully curated to suit Irish homes, gardens, and commercial projects, offering both contemporary style and traditional charm in every way.</p>
             </div>
-            <div className="card text-center min-h-[300px] flex flex-col justify-center items-center p-2 text-white bg-[#867F54]">
+            <div className="card text-center min-h-[300px] flex flex-col justify-center items-center px-2 py-6 text-white bg-[#867F54]">
                 <div className="icn flex justify-center items-center border-1 border-white w-[78px] h-[78px]">
                     <Image src={"/media/about/time.png"} alt="durable" width={40} height={50}/>
                 </div>
-                <span className="block pt-5 pb-3 text-xl font-semibold">Timely service</span>
-                <p className="!text-white"> From our humble beginnings, weve grown into a team of passionate creatives, strategists, and technologists dedicated to bringing visions to life.</p>
+                <span className="block pt-5 pb-3 text-xl font-semibold">Unmatched Quality</span>
+                <p className="!text-white">Every stone is sourced from trusted quarries and crafted to meet the international standards, ensuring high durability, great resilience, and timeless beauty that withstands Ireland’s climate while enhancing spaces for decades. </p>
             </div>
-            <div className="card text-center min-h-[300px] flex flex-col justify-center items-center p-2 text-white bg-[#867F54]">
+            <div className="card text-center min-h-[300px] flex flex-col justify-center items-center px-2 py-6 text-white bg-[#867F54]">
                 <div className="icn flex justify-center items-center border-1 border-white w-[78px] h-[78px]">
                     <Image src={"/media/about/price.png"} alt="durable" width={45} height={50}/>
                 </div>
-                <span className="block pt-5 pb-3 text-xl font-semibold">Affordable price</span>
-                <p className="!text-white"> From our humble beginnings, weve grown into a team of passionate creatives, strategists, and technologists dedicated to bringing visions to life.</p>
+                <span className="block pt-5 pb-3 text-xl font-semibold">Eco-friendly Products</span>
+                <p className="!text-white">We greatly prioritize eco-friendly sourcing and long-lasting performance, reducing environmental impact while offering customers sustainable building materials that add value and responsibility to their projects.</p>
             </div>
-            <div className="card text-center min-h-[300px] flex flex-col justify-center items-center p-2 text-white bg-[#867F54]">
+            <div className="card text-center min-h-[300px] flex flex-col justify-center items-center px-2 py-6 text-white bg-[#867F54]">
                 <div className="icn flex justify-center items-center border-1 border-white w-[78px] h-[78px]">
                     <Image src={"/media/about/quality.png"} alt="durable" width={42} height={50}/>
                 </div>
-                <span className="block pt-5 pb-3 text-xl font-semibold">Ensured Quality</span>
-                <p className="!text-white"> From our humble beginnings, weve grown into a team of passionate creatives, strategists, and technologists dedicated to bringing visions to life.</p>
+                <span className="block pt-5 pb-3 text-xl font-semibold">Customer-Centric Service</span>
+                <p className="!text-white">From professional advice to reliable support, we guide clients at every stage, ensuring smooth experiences, tailored solutions, and complete satisfaction with every Stonecera product chosen.</p>
             </div>
           </div>
         </div>
