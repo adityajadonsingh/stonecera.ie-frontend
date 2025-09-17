@@ -35,7 +35,7 @@ export interface Category {
   image_alt_tag: string;
   short_description: string;
   pageBanner: PageBanner;
-  footer_content: string;
+  footer_content: string | null;
   seo: seoTags;
   schema: string;
   updatedAt: string;
