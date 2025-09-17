@@ -377,10 +377,10 @@ top: 50%;
   right: 0;
   height: 80px;
 background: #F3F3EB;
-background: -webkit-linear-gradient(180deg, rgba(243, 243, 235, 0) 8%, rgba(243, 243, 235, 1) 100%);
-background: -moz-linear-gradient(180deg, rgba(243, 243, 235, 0) 8%, rgba(243, 243, 235, 1) 100%);
-background: linear-gradient(180deg, rgba(243, 243, 235, 0) 8%, rgba(243, 243, 235, 1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#F3F3EB", endColorstr="#F3F3EB", GradientType=0);
+background: -webkit-linear-gradient(180deg, rgba(243, 243, 235, 0) 8%, rgba(251, 251, 241, 1) 100%);
+background: -moz-linear-gradient(180deg, rgba(243, 243, 235, 0) 8%, rgba(251, 251, 241, 1) 100%);
+background: linear-gradient(180deg, rgba(243, 243, 235, 0) 8%, rgba(251, 251, 241, 1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#F3F3EB", endColorstr="#FBFBF1", GradientType=0);
   pointer-events: none;
   z-index: 10;
 }
