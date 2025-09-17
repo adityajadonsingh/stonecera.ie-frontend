@@ -21,7 +21,7 @@ export default function FooterContent({
   return (
     <section className="pg-des mb-10">
       <div className="wrapper px-5">
-        <div className="inner-wrapper bg-[#f3f3eb]">
+        <div className="inner-wrapper bg-[#fbfbf1]">
           {isFullPage ? (
             <>
               <div className="relative">
