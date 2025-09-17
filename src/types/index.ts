@@ -25,8 +25,6 @@ export interface Banner {
   enquiry_button_text: string;
 }
 
-
-
 export interface Category {
   id: number;
   name: string;
@@ -113,7 +111,7 @@ export interface Homepage {
   seo: seoTags;
 }
 
-export interface AboutPage{
+export interface AboutPage {
   pageBanner: PageBanner;
   seo: seoTags;
 }
@@ -152,4 +150,13 @@ export interface Review {
   comment: string;
   rating: number;
   createdAt: string;
+}
+export interface LegalPage {
+  id: number;
+  documentId: string;
+  page_type: string;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
 }

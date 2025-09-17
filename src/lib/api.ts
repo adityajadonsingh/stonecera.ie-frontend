@@ -1,6 +1,6 @@
 // src/lib/api.ts
 
-import { AboutPage, Category, EnquiryData, FooterType, Homepage, Product, ProductCategory, Review } from "@/types";
+import { AboutPage, Category, EnquiryData, FooterType, Homepage, LegalPage, Product, ProductCategory, Review } from "@/types";
 
 
 const API_URL = process.env.API_URL!;
@@ -192,3 +192,31 @@ export async function submitReview(review: {
 
 
 
+export async function getLegalPageContent(
+  pageType: string
+): Promise<string | null> {
+  try {
+    const res = await fetch("http://localhost:1337/api/legal-pages", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      next: { revalidate: 60 }, // cache for 1 minute
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch legal pages");
+    }
+
+    const data: {data: LegalPage[]} = await res.json();
+
+    const matchedPage = data.data.find(
+      (page) => page.page_type.toLowerCase() === pageType.toLowerCase()
+    );
+
+    return matchedPage ? matchedPage.content : null;
+  } catch (error) {
+    console.error("Error fetching legal page:", error);
+    return null;
+  }
+}
