@@ -17,9 +17,9 @@ export default async function BrochurePage() {
       <section className="brochure py-10">
         <div className="container">
           <div className="grid grid-cols-4">
-            {data.brochures.map((b, i) => {
+            {data.brochures.map((b) => {
               return (
-                <Link href={b.pdf?.url} target="_blank">
+                <Link href={b.pdf?.url} key={b.id} target="_blank">
                   <div className="card ">
                     <div className="h-[200px] relative">
                       <Image
