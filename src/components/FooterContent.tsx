@@ -29,10 +29,7 @@ export default function FooterContent({
                   className={`prose max-w-none`}
                   dangerouslySetInnerHTML={{ __html: content }}
                 ></div>
-
               </div>
-
-              
             </>
           ) : (
             <>

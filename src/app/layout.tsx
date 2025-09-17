@@ -7,6 +7,7 @@ import { getAllCategories, getFooter } from "@/lib/api";
 import { Category, FooterType } from "@/types";
 import Footer from "@/components/Footer";
 import Script from "next/script";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -40,6 +41,7 @@ export default async function RootLayout({
     <html lang="en">
       <head>
         <meta name="robots" content="noindex, nofollow" />
+        <GoogleAnalytics />
         <Script
           id="tawk-to"
           strategy="afterInteractive"
