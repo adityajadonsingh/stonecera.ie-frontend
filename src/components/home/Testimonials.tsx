@@ -9,7 +9,7 @@ import { Testimonal } from "@/types";
 
 export default function Testimonials({ testimonials }: { testimonials: Testimonal[] }) {
   return (
-    <section className="relative testimonials py-16">
+    <section className="relative testimonials md:py-16 py-8">
       <Image
         src="/media/testimonials-bg.png"
         alt="testimonials"
@@ -20,7 +20,7 @@ export default function Testimonials({ testimonials }: { testimonials: Testimona
 
       <div className="container overflow-hidden">
         <div className="relative z-10">
-          <h2 className="text-center headingH2 !text-white mb-12">
+          <h2 className="text-center headingH2 !text-white md:mb-12 mb-6">
             What Our Customers Say About us
           </h2>
 
@@ -36,8 +36,8 @@ export default function Testimonials({ testimonials }: { testimonials: Testimona
             }}
             breakpoints={{
               0: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
+              510: { slidesPerView: 2 },
+              810: { slidesPerView: 3 },
             }}
             className="!overflow-visible"
           >

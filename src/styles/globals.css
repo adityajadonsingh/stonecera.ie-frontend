@@ -182,6 +182,12 @@ main {
 
   }
 }
+.product-slider {
+  .swiper-button-prev ,
+  .swiper-button-next {
+    background-color: #867F54;
+  }
+}
 
 .page-banner {
   min-height: 28vh;

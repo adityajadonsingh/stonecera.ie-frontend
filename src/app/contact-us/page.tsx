@@ -13,7 +13,7 @@ export default async function ContactPage() {
             <PageBanner bgImg={"/media/contact-banner.webp"} bgImgAlt="Contact Us" pageName="Contact Us" breadcrum={[{ slugName: "Contact us", slug: "/" }]} categoryContent={null} />
             <section className="contact-top py-10">
                 <div className="container">
-                    <div className="grid grid-cols-4 gap-4">
+                    <div className="grid md:grid-cols-4 grid-cols-2 gap-4">
                         <div className="card flex flex-col px-2 justify-center gap-3 text-center items-center bg-[#F3F3EB] h-[250px]">
                             <div className="icn w-[85px] h-[85px] flex justify-center items-center bg-[#867F54]">
                                 <Image src={"/media/contact/location.png"} alt="location" width={39} height={47}/>

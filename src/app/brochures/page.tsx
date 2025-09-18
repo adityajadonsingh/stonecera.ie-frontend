@@ -16,7 +16,7 @@ export default async function BrochurePage() {
       />
       <section className="brochure py-10">
         <div className="container">
-          <div className="grid grid-cols-4">
+          <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
             {data.brochures.map((b) => {
               return (
                 <Link href={b.pdf?.url} key={b.id} target="_blank">

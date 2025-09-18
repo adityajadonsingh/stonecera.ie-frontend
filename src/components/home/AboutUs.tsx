@@ -4,10 +4,10 @@ import Link from "next/link"
 export default function AboutUs({data}:{data: HomeAbout}){
     return (
         <>
-            <section className="home-about py-10">
+            <section className="home-about md:py-10 py-5">
                 <div className="container">
-                    <div className="grid grid-cols-2">
-                        <div className="img-side min-h-[450px] h-full relative">
+                    <div className="grid md:grid-cols-2 grid-cols-1 gap-y-3">
+                        <div className="img-side md:min-h-[450px] min-h-[300px] md:w-full sm:w-8/12 w-10/12 mx-auto h-full relative">
                             <Image 
                                 src={data.image}
                                 alt={data.alt_tag}
@@ -15,13 +15,13 @@ export default function AboutUs({data}:{data: HomeAbout}){
                                 className="object-cover"
                             />
                         </div>
-                        <div className="content-side pl-8">
+                        <div className="content-side md:pl-8 md:text-start text-center">
                             <h2 className="headingH2">{data.title}</h2>
                             <p className="pt-4">{data.description}</p>
                             <Link href={"/about-us/"}>
                                 <button className="btnType-1 mt-4">Read More <i className="bi bi-arrow-right ml-2"></i></button>
                             </Link>
-                            <div className="grid grid-cols-4 mt-8">
+                            <div className="grid sm:grid-cols-4 grid-cols-2 gap-y-4 mt-8">
                                 <div className="card flex justify-center items-center flex-col">
                                     <div className="icns relative flex justify-center items-center bg-[#F5F5DC] w-[90px] h-[90px]">
                                     <Image 

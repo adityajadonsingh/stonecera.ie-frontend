@@ -19,8 +19,8 @@ export default async function AboutUsPage() {
       />
       <section className="about-us py-10">
         <div className="container">
-          <div className="grid grid-cols-[55%_40%]">
-            <div className="content pr-10 flex flex-col justify-center">
+          <div className="grid md:grid-cols-[55%_40%] grid-cols-1 gap-y-10">
+            <div className="content pr-10 flex flex-col justify-center md:text-start text-center">
               <h2 className="headingH2">Who we are?</h2>
               <p className="py-2">
                 Stonecera is a trusted stone supplier in Ireland, offering an expertly curated range of natural and engineered stones to enhance living spaces, gardens, and commercial projects. Our collection includes cobblestone paving, sandstone paving, outdoor porcelain tiles, porcelain paving, and porcelain plank tiles. 
@@ -43,20 +43,20 @@ export default async function AboutUsPage() {
       </section>
       <section className="features pb-10">
         <div className="container">
-          <div className="grid grid-cols-2">
-            <div className="left-side">
+          <div className="grid lg:grid-cols-2 md:grid-cols-[70%_30%] grid-cols-1 items-center gap-y-6">
+            <div className="left-side md:text-start text-center">
               <h2 className="headingH2">Why Choose Stonecera?</h2>
               <p className="pt-4">
                 At Stoncera, we strongly believe in going beyond just supplying stones! We deliver quality, trust, and timeless beauty. Our commitment ensures that every customer in Ireland receives highly durable material, professional guidance, and the timeless elegance of natural stones. 
               </p>
             </div>
-            <div className="right-side flex items-center justify-end">
+            <div className="right-side flex items-center md:justify-end justify-center">
               <Link href="/product-category/">
                 <button className="btnType-1">Explore All Categories</button>
               </Link>
             </div>
           </div>
-          <div className="grid grid-cols-4 mt-8 gap-5">
+          <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 mt-8 gap-5">
             <div className="card text-center min-h-[300px] flex flex-col justify-center items-center px-2 py-6 text-white bg-[#867F54]">
                 <div className="icn flex justify-center items-center border-1 border-white w-[78px] h-[78px]">
                     <Image src={"/media/about/durable.png"} alt="durable" width={50} height={50}/>

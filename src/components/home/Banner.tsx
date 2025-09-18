@@ -36,11 +36,11 @@ export default function BannerSection({ banners }: { banners: Banner[];}) {
                 priority
               />
               <div className="container h-full">
-                <div className="content-box relative z-10 flex flex-col pb-5 text-center justify-end items-center m-auto text-white w-9/12 h-full">
-                <h2 className="xl:text-5xl lg:text-3xl md:text-2xl text-xl font-bold mb-3 !text-white">
+                <div className="content-box relative z-10 flex flex-col pb-5 text-center justify-end items-center m-auto text-white lg:w-9/12 h-full">
+                <h2 className="xl:text-5xl lg:text-3xl text-2xl font-bold mb-3 !text-white">
                   {banner.title}
                 </h2>
-                <p className="mb-4 md:text-lg text-base !text-white">{banner.subtitle}</p>
+                <p className="mb-4 lg:text-lg text-base !text-white">{banner.subtitle}</p>
                 {/* <button
                   onClick={() => {
                     const el = document.getElementById("contact-section");

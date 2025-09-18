@@ -30,14 +30,14 @@ export default function CategorySlider({ allCategories }: { allCategories: Categ
                             spaceBetween={20}
                             breakpoints={{
                                 1024: { slidesPerView: 4 }, // lg and up
-                                768: { slidesPerView: 2 }, // md
-                                0: { slidesPerView: 1 }, // mobile
+                                768: { slidesPerView: 3 }, // md
+                                0: { slidesPerView: 2 }, // mobile
                             }}
                         >
                             {allCategories.map((category, idx) => (
                                 <SwiperSlide key={`category-${idx}`}>
                                     <Link href={`/product-category/${category.slug}/`}>
-                                        <div className="card relative h-[450px] group overflow-hidden">
+                                        <div className="card relative lg:h-[450px] sm:h-[350px] h-[250px] group overflow-hidden">
                                             <Image
                                                 src={category.image}
                                                 alt={category.image_alt_tag}
@@ -45,7 +45,7 @@ export default function CategorySlider({ allCategories }: { allCategories: Categ
                                                 className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
                                             />
                                             <div className="overlay"></div>
-                                            <span className="absolute text-center w-full px-4 z-10 !text-white text-xl font-medium capitalize bottom-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                                            <span className="absolute text-center w-full md:px-4 px-1 md:pb-0 pb-3 z-10 !text-white md:text-xl text-base font-semibold capitalize bottom-0 left-1/2 -translate-x-1/2 md:-translate-y-1/2">
                                                 {category.name}
                                             </span>
                                         </div>

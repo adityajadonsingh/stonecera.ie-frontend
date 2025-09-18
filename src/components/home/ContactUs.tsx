@@ -39,11 +39,11 @@ export default function ContactUs({ data }: { data: HomeContact }) {
   };
 
   return (
-    <section className="contact-home py-10 scroll-mt-24" id="contact-us">
+    <section className="contact-home md:py-10 py-5 scroll-mt-24" id="contact-us">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-[60%_40%] items-center">
           {/* Left Side */}
-          <div className="left-side pr-8">
+          <div className="left-side md:text-start text-center md:pr-8 md:w-full sm:w-10/12 mx-auto">
             <h2 className="headingH2 mb-4">{data.title}</h2>
             <p className="mb-6 text-gray-600">
               {data.sub_heading}

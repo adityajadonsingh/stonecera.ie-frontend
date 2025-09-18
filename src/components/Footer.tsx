@@ -6,7 +6,7 @@ export default function Footer({ allCategories, phone, email, address, instagram
     return (<>
         <footer className="footer py-10 bg-[#F3F3EB]">
             <div className="container">
-                <div className="grid grid-cols-4">
+                <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-y-8">
                     <div className="foot-colm">
                         <h4 className="font-semibold text-xl mb-4">Stonecera</h4>
                         <ul className="flex flex-col gap-y-2">
@@ -100,17 +100,16 @@ export default function Footer({ allCategories, phone, email, address, instagram
                     </div>
                 </div>
                 <div className="btm-footer mt-5">
-                    <ul className="flex gap-x-4 mb-5">
+                    <ul className="flex md:justify-start justify-center gap-x-4 mb-5">
                         <li><Link href={linkedin_link}><Image src={"/media/icons/linkedin.png"} alt="linkedin" width={40} height={40} /></Link></li>
                         <li><Link href={facebook_link}><Image src={"/media/icons/facebook.png"} alt="linkedin" width={40} height={40} /></Link></li>
                         <li><Link href={twitter_link}><Image src={"/media/icons/x.png"} alt="x" width={40} height={40} /></Link></li>
                         <li><Link href={instagram_link}><Image src={"/media/icons/insta.png"} alt="linkedin" width={40} height={40} /></Link></li>
                         <li><Link href={pinterest_link}><Image src={"/media/icons/pintrest.png"} alt="pinterest" width={40} height={40} /></Link></li>
                     </ul>
-                    <ul className="flex gap-x-4 text-[#B2AC88]">
+                    <ul className="flex md:flex-nowrap flex-wrap-reverse md:justify-start justify-center  gap-4 text-[#B2AC88]">
                         <li><span>@2025 stonecera all rights reserved</span></li>
-                        <li><Link href={"/privacy-policy/"}>Privacy Policy</Link></li>
-                        <li><Link href={"/terms-and-conditions/"}>Terms of use</Link></li>
+                        <li className="space-x-4"><Link href={"/privacy-policy/"}>Privacy Policy</Link> <Link href={"/terms-and-conditions/"}>Terms of use</Link></li>
                     </ul>
 
                 </div>

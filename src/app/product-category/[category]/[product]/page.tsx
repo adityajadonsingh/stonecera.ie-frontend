@@ -30,7 +30,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
     <>
       <section className="product-top py-10">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Product Image Gallery */}
             <ProductGallery images={productData.images} />
 
@@ -38,7 +38,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <div className="product-info">
               {/* Breadcrumbs */}
               <div className="product-bread mb-3">
-                <ul className="flex flex-nowrap gap-x-2 font-semibold text-[#867f54] capitalize">
+                <ul className="flex flex-wrap gap-x-2 font-semibold md:text-base text-sm text-[#867f54] capitalize">
                   <li><Link href={"/"}>Home</Link></li>
                   <li>/</li>
                   <li><Link href={`/product-category/`}>Product Category</Link></li>
@@ -53,7 +53,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 </ul>
               </div>
 
-              <h1 className="text-3xl capitalize font-bold mb-4">
+              <h1 className="md:text-3xl text-2xl capitalize font-bold mb-4">
                 {productData.name}
               </h1>
 

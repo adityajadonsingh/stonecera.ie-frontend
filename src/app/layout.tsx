@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
+import "@/styles/responsive.css";
 import Header from "@/components/Header";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Lato, Playfair_Display } from "next/font/google";

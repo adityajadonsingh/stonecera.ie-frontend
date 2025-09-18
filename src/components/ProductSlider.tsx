@@ -31,7 +31,8 @@ export default function ProductSlider({
             }}
             breakpoints={{
               0: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
+              400: { slidesPerView: 2 },
+              700: { slidesPerView: 3 },
               1024: { slidesPerView: 4 },
             }}
           >

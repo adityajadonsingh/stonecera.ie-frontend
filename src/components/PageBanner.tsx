@@ -20,13 +20,13 @@ export default function PageBanner({ bgImg, bgImgAlt, pageName, breadcrum, categ
                 <div className="container h-full w-full flex justify-center flex-col relative z-10">
                     <h1 className="headingH1">{pageName}</h1>
                     {
-                        categoryContent && <p className="!text-white w-8/12">{categoryContent}</p>
+                        categoryContent && <p className="!text-white md:text-base text-sm md:w-8/12">{categoryContent}</p>
                     }
                 </div>
             </section>
             <div className="breadcrum bg-[#F6F6F2] py-2">
                 <div className="container">
-                    <ul className="flex gap-x-2 font-semibold text-[#B2AC88]">
+                    <ul className="flex flex-wrap gap-x-2 whitespace-nowrap font-semibold text-[#B2AC88]">
                         <li>
                             <Link href={"/"}>Home</Link>
                         </li>

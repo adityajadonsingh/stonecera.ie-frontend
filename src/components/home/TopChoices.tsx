@@ -12,16 +12,16 @@ import "swiper/css/navigation";
 
 export default function TopChoices({ allCategories, data }: { allCategories: Category[]; data: HomeCategorySilder }) {
   return (
-    <section className="top-choices py-10">
+    <section className="top-choices md:py-10 py-5">
       <div className="container">
-        <div className="grid grid-cols-2">
-          <div className="left-side">
+        <div className="grid lg:grid-cols-2 md:grid-cols-[70%_30%] grid-cols-1 items-center">
+          <div className="left-side md:text-start text-center">
             <h2 className="headingH2">{data.title}</h2>
-            <p className="pt-4">
+            <p className="lg:pt-4 pt-2">
               {data.subtitle}
             </p>
           </div>
-          <div className="right-side flex items-center justify-end">
+          <div className="right-side flex items-center md:justify-end justify-center mt-4 md:mt-0">
             <Link href={"/product-category/"}><button className="btnType-1">Explore All Categories</button></Link>
           </div>
         </div>
@@ -42,14 +42,14 @@ export default function TopChoices({ allCategories, data }: { allCategories: Cat
             spaceBetween={20}
             breakpoints={{
               1024: { slidesPerView: 4 }, // lg and up
-              768: { slidesPerView: 2 }, // md
-              0: { slidesPerView: 1 }, // mobile
+              768: { slidesPerView: 3 }, // md
+              0: { slidesPerView: 2 }, // mobile
             }}
           >
             {allCategories.map((category, idx) => (
               <SwiperSlide key={`category-${idx}`}>
                 <Link href={`/product-category/${category.slug}/`}>   
-                  <div className="card relative h-[400px] group overflow-hidden">
+                  <div className="card relative lg:h-[400px] sm:h-[320px] h-[230px] group overflow-hidden">
                     <Image
                       src={category.image}
                       alt={category.image_alt_tag}
@@ -57,7 +57,7 @@ export default function TopChoices({ allCategories, data }: { allCategories: Cat
                       className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
                     />
                    <div className="overlay"></div>
-                                            <span className="absolute text-center w-full px-4 z-10 !text-white text-xl font-semibold capitalize bottom-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                                            <span className="absolute text-center w-full md:px-4 px-1 md:pb-0 pb-3 z-10 !text-white md:text-xl text-base font-semibold capitalize bottom-0 left-1/2 -translate-x-1/2 md:-translate-y-1/2">
                                                 {category.name}
                                             </span>
                   </div>

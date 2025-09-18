@@ -19,12 +19,12 @@ export default async function ProductCategoryPage() {
             <CategorySlider allCategories={allCategories} />
             <section className="category-page-footer mb-10">
                 <div className="container">
-                    <div className="grid grid-cols-[45%_55%]">
+                    <div className="grid md:grid-cols-[45%_55%] grid-cols-1">
                         <div className="content px-8 py-4 w-full h-full flex flex-col justify-center bg-[#F5F5DC]">
                             <h2 className="headingH2 pb-3">{getPageData.footer?.footerHeading}</h2>
                             <p>{getPageData.footer?.footerContent}</p>
                         </div>
-                        <div className="img-box h-[500px] relative">
+                        <div className="img-box md:h-[500px] h-[300px] relative">
                             <Image 
                                 src={getPageData.footer?.footerImg}
                                 alt={getPageData.footer?.footerImgAlt}
