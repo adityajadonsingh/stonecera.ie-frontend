@@ -59,7 +59,7 @@ export default async function ProductsPage() {
 
       <section className="product-grid py-10">
         <div className="container">
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4">
             {
               allProducts.map(product => <ProductCard data={product} key={`prod-${product.id}`} />)
             }
