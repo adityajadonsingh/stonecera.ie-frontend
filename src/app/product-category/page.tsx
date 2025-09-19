@@ -6,6 +6,9 @@ import { getAllCategories, getProductCategoryPageData } from "@/lib/api";
 import { Category, ProductCategory } from "@/types";
 
 import { Metadata } from "next";
+
+export const revalidate = 60;
+
 export async function generateMetadata(): Promise<Metadata> {
   const content = await getProductCategoryPageData();
 

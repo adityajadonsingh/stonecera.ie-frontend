@@ -6,6 +6,9 @@ import ContactUs from "@/components/home/ContactUs";
 import { ContactPageData } from "@/types";
 
 import { Metadata } from "next";
+
+export const revalidate = 60;
+
 export async function generateMetadata(): Promise<Metadata> {
   const content: ContactPageData = await getContactPage();
   const seo = content.seo;

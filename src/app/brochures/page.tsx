@@ -4,6 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { Metadata } from "next";
+
+export const revalidate = 60;
+
 export async function generateMetadata(): Promise<Metadata> {
   const content = await getBrochurePage();
   const seo = content.seo;

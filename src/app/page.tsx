@@ -9,6 +9,9 @@ import { getAllCategories, getHomepageData } from "@/lib/api";
 import { Category, Homepage } from "@/types";
 
 import { Metadata } from "next";
+
+export const revalidate = 60;
+
 export async function generateMetadata(): Promise<Metadata> {
   const content: Homepage = await getHomepageData();
   const seo = content.seo;
