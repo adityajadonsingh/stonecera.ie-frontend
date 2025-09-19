@@ -1,29 +1,19 @@
-"use client";
-
 import { Schema } from "@/types";
 
-type JSONValue = string | number | boolean | null | JSONObject | JSONArray;
-interface JSONObject {
-  [key: string]: JSONValue;
-}
-type JSONArray = JSONValue[];
 
+export default function SchemaInjector({ schemas }: { schemas?: Schema | Schema[] }) {
+  if (!schemas) return null;
 
-interface SchemaInjectorProps {
-  schemas?: Schema[];
-}
-
-export default function SchemaInjector({ schemas }: SchemaInjectorProps) {
-  if (!schemas || schemas.length === 0) return null;
+  const normalizedSchemas = Array.isArray(schemas) ? schemas : [schemas];
 
   return (
     <>
-      {schemas.map((schema) => (
+      {normalizedSchemas.map((schema, i) => (
         <script
-          key={schema.id}
+          key={schema.id ?? i}
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(schema.schema_json),
+            __html: JSON.stringify(schema.schema_json ?? schema),
           }}
         />
       ))}
