@@ -1,6 +1,14 @@
 // app/thank-you/page.tsx
 
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false, 
+  },
+};
 
 export default function ThankYou() {
   return (
