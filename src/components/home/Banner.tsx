@@ -37,9 +37,9 @@ export default function BannerSection({ banners }: { banners: Banner[];}) {
               />
               <div className="container h-full">
                 <div className="content-box relative z-10 flex flex-col pb-5 text-center justify-end items-center m-auto text-white lg:w-9/12 h-full">
-                <h2 className="xl:text-5xl lg:text-3xl text-2xl font-bold mb-3 !text-white">
+                <h1 className="xl:text-5xl lg:text-3xl text-2xl font-bold mb-3 !text-white">
                   {banner.title}
-                </h2>
+                </h1>
                 <p className="mb-4 lg:text-lg text-base !text-white">{banner.subtitle}</p>
                 {/* <button
                   onClick={() => {
