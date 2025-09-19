@@ -4,7 +4,7 @@ import { AboutPage, BrochurePage, Category, ContactPageData, EnquiryData, Footer
 
 
 const API_URL = process.env.API_URL!;
-const revalidateTime = 0;
+const revalidateTime = 60;
 const PRODUCTS_PER_PAGE = 12;
 const BLOGS_PER_PAGE = 12;
 
