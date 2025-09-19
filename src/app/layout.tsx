@@ -58,8 +58,6 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
-        
-        <meta name="robots" content="noindex, nofollow" />
         <GoogleAnalytics />
         <Script
           id="tawk-to"
