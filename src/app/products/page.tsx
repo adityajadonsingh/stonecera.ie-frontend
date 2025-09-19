@@ -45,6 +45,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function ProductsPage() {
   const allProducts = await getAllProducts();
+  if (!allProducts || allProducts.length === 0) {
+    return <p>No products found.</p>;
+  }
   const bread = [{
     slugName: "Products",
     slug: "/product-category/"

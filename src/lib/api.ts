@@ -208,18 +208,26 @@ export async function getLegalPageContent(
       throw new Error("Failed to fetch legal pages");
     }
 
-    const data: LegalPageData[] = await res.json();
+    const json = await res.json();
 
-    const matchedPage = data.find(
+    // Check if it's wrapped inside { data: [...] }
+    const pages: LegalPageData[] = Array.isArray(json)
+      ? json
+      : Array.isArray(json.data)
+      ? json.data
+      : [];
+
+    const matchedPage = pages.find(
       (page) => page.page_type.toLowerCase() === pageType.toLowerCase()
     );
 
-    return matchedPage || null; // ✅ return whole object
+    return matchedPage || null;
   } catch (error) {
     console.error("Error fetching legal page:", error);
     return null;
   }
 }
+
 
 
 export async function getBrochurePage(): Promise<BrochurePage> {
