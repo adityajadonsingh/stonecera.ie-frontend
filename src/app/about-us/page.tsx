@@ -6,6 +6,9 @@ import ProductSlider from "@/components/ProductSlider";
 
 import { Metadata } from "next";
 import { AboutPage } from "@/types";
+
+export const revalidate = 60;
+
 export async function generateMetadata(): Promise<Metadata> {
   const content: AboutPage = await getAboutPageData();
   const seo = content.seo;
