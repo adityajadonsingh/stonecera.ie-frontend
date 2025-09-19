@@ -5,7 +5,6 @@ import ProductCard from "@/components/product/ProductCard";
 import { getAllProducts, getProductsSeo } from "@/lib/api";
 import { Metadata } from "next";
 
-export const revalidate = 60;
 
 export async function generateMetadata(): Promise<Metadata> {
   const content = await getProductsSeo();
