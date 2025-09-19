@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { sendEnquiry } from "@/lib/api";
 import { HomeContact } from "@/types";
+import { useRouter } from "next/navigation";
 
 export default function ContactUs({ data }: { data: HomeContact }) {
   const [formData, setFormData] = useState({
@@ -15,7 +16,7 @@ export default function ContactUs({ data }: { data: HomeContact }) {
   });
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<string | null>(null);
-
+  const router = useRouter();
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -31,6 +32,7 @@ export default function ContactUs({ data }: { data: HomeContact }) {
       await sendEnquiry(formData);
       setStatus("Message sent successfully ✅");
       setFormData({ name: "", email: "", phone_number: "", message: "", product_name: null });
+      router.push("/thank-you");
     } catch (err) {
       setStatus("Something went wrong ❌");
     } finally {
