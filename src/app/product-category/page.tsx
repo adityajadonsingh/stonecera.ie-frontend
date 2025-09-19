@@ -5,6 +5,44 @@ import CategorySlider from "@/components/product-category/CategorySlider";
 import { getAllCategories, getProductCategoryPageData } from "@/lib/api";
 import { Category, ProductCategory } from "@/types";
 
+import { Metadata } from "next";
+export async function generateMetadata(): Promise<Metadata> {
+  const content = await getProductCategoryPageData();
+
+  if (!content) {
+    return {
+      title: "Home | MPG Stone",
+      description: "Default description",
+    };
+  }
+
+  const seo = content.seo;
+
+  return {
+    title: seo.meta_title || "Home | MPG Stone",
+    description: seo.meta_description || "Default description",
+    openGraph: {
+      title: seo.og_title || seo.meta_title || "",
+      description: seo.og_description || seo.meta_description || "",
+      url: seo.canonical || "",
+      images: seo.meta_image ? [seo.meta_image] : [],
+      type: "website",
+      locale: "en_US",
+      siteName: "Stonecera",
+    },
+    twitter: {
+      title: seo.twitter_title || seo.meta_title || "",
+      description: seo.twitter_description || seo.meta_description || "",
+      images: seo.meta_image ? [seo.meta_image] : [],
+    },
+    alternates: {
+      canonical: seo.canonical || "",
+    },
+    robots: seo.robots,
+  };
+}
+
+
 export default async function ProductCategoryPage() {
     const getPageData: ProductCategory = await getProductCategoryPageData();
     const allCategories: Category[] = await getAllCategories();

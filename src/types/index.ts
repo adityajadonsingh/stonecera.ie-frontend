@@ -35,7 +35,7 @@ export interface Category {
   pageBanner: PageBanner;
   footer_content: string | null;
   seo: seoTags;
-  schema: string;
+  schema: Schema[];
   updatedAt: string;
   products: Product[];
 }
@@ -63,6 +63,7 @@ export interface Product {
   updatedAt: string;
   category: Category;
   seo: seoTags;
+  schema: Schema[];
 }
 
 export interface Testimonal {
@@ -109,6 +110,7 @@ export interface Homepage {
   testimonials: Testimonal[];
   footerContent: string;
   seo: seoTags;
+  schema: Schema[];
 }
 
 export interface AboutPage {
@@ -134,6 +136,9 @@ export interface ProductCategory {
   footer: PageFooterContent;
   seo: seoTags;
 }
+export interface ContactPageData {
+  seo: seoTags;
+}
 
 export interface EnquiryData {
   name: string;
@@ -151,7 +156,7 @@ export interface Review {
   rating: number;
   createdAt: string;
 }
-export interface LegalPage {
+export interface LegalPageData {
   id: number;
   documentId: string;
   page_type: string;
@@ -159,6 +164,7 @@ export interface LegalPage {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
+  seo: seoTags;
 }
 interface PDF{
   id: number;
@@ -179,4 +185,19 @@ export interface BrochurePage{
   pageBanner: PageBanner;
   brochures: Brochure[];
   seo: seoTags;
+}
+export interface ProductsPageSeo{
+  seo: seoTags;
+}
+
+type JSONValue = string | number | boolean | null | JSONObject | JSONArray;
+export interface JSONObject {
+  [key: string]: JSONValue;
+}
+type JSONArray = JSONValue[];
+
+export interface Schema {
+  id: number;
+  name: string;
+  schema_json: JSONObject;
 }

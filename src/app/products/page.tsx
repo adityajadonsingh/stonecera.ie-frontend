@@ -2,49 +2,44 @@
 
 import PageBanner from "@/components/PageBanner";
 import ProductCard from "@/components/product/ProductCard";
-import { getAllProducts, getCategoryBySlug } from "@/lib/api";
-import { notFound } from "next/navigation";
+import { getAllProducts, getProductsSeo } from "@/lib/api";
+import { Metadata } from "next";
 
-// export async function generateStaticParams() {
-//   const categories = await getAllCategorys();
-//   return categories.map((category: { slug: string }) => ({
-//     category: category.slug,
-//   }));
-// }
+export async function generateMetadata(): Promise<Metadata> {
+  const content = await getProductsSeo();
 
-// export async function generateMetadata({
-//   params,
-// }: {
-//   params: Promise<{ category: string }>;
-// }): Promise<Metadata> {
-//   const getParams = await params;
-//   const [category] = await getCategoryBySlug(getParams.category);
+  if (!content) {
+    return {
+      title: "Home | MPG Stone",
+      description: "Default description",
+    };
+  }
 
-//   return {
-//     title: category.meta_title || "Home | MPG Stone",
-//     description: category.meta_description || "Default description",
-//     keywords: category.meta_keywords || "",
-//     openGraph: {
-//       title: category.og_title || category.meta_title || "",
-//       description: category.og_description || category.meta_description || "",
-//       url: category.canonical_url || "",
-//       images: category.meta_image ? [category.meta_image] : [],
-//       type: "website",
-//       locale: "en_US",
-//       siteName: "MPG Stone",
-//     },
-//     twitter: {
-//       title: category.twitter_title || category.meta_title || "",
-//       description:
-//         category.twitter_decriptions || category.meta_description || "",
-//       images: category.meta_image ? [category.meta_image] : [],
-//     },
-//     alternates: {
-//       canonical: category.canonical_url || "",
-//     },
-//     robots: category.robots_tag,
-//   };
-// }
+  const seo = content.seo;
+
+  return {
+    title: seo.meta_title || "Home | MPG Stone",
+    description: seo.meta_description || "Default description",
+    openGraph: {
+      title: seo.og_title || seo.meta_title || "",
+      description: seo.og_description || seo.meta_description || "",
+      url: seo.canonical || "",
+      images: seo.meta_image ? [seo.meta_image] : [],
+      type: "website",
+      locale: "en_US",
+      siteName: "Stonecera",
+    },
+    twitter: {
+      title: seo.twitter_title || seo.meta_title || "",
+      description: seo.twitter_description || seo.meta_description || "",
+      images: seo.meta_image ? [seo.meta_image] : [],
+    },
+    alternates: {
+      canonical: seo.canonical || "",
+    },
+    robots: seo.robots,
+  };
+}
 
 export default async function ProductsPage() {
   const allProducts = await getAllProducts();
@@ -63,13 +58,9 @@ export default async function ProductsPage() {
             {
               allProducts.map(product => <ProductCard data={product} key={`prod-${product.id}`} />)
             }
-            {/* <ProductCard /> */}
           </div>
         </div>
       </section>
-
-      {/* <FooterContent content={category.descriptions} isFullPage={false} /> */}
-      {/* <SchemaInjector schemas={safeSchemas}/> */}
     </>
   );
 }

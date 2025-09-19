@@ -1,8 +1,39 @@
 import Image from "next/image";
 import Link from "next/link";
 import PageBanner from "@/components/PageBanner";
-import { getFooter, getHomepageData } from "@/lib/api";
+import { getContactPage, getFooter, getHomepageData } from "@/lib/api";
 import ContactUs from "@/components/home/ContactUs";
+import { ContactPageData } from "@/types";
+
+import { Metadata } from "next";
+export async function generateMetadata(): Promise<Metadata> {
+  const content: ContactPageData = await getContactPage();
+  const seo = content.seo;
+
+
+  return {
+    title: seo.meta_title || "Home | MPG Stone",
+    description: seo.meta_description || "Default description",
+    openGraph: {
+      title: seo.og_title || seo.meta_title || "",
+      description: seo.og_description || seo.meta_description || "",
+      url: seo.canonical || "",
+      images: seo.meta_image ? [seo.meta_image] : [],
+      type: "website",
+      locale: "en_US",
+      siteName: "Stonecera",
+    },
+    twitter: {
+      title: seo.twitter_title || seo.meta_title || "",
+      description: seo.twitter_description || seo.meta_description || "",
+      images: seo.meta_image ? [seo.meta_image] : [],
+    },
+    alternates: {
+      canonical: seo.canonical || "",
+    },
+    robots: seo.robots,
+  };
+}
 
 export default async function ContactPage() {
     const details = await getFooter();

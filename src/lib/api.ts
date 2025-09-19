@@ -1,6 +1,6 @@
 // src/lib/api.ts
 
-import { AboutPage, BrochurePage, Category, EnquiryData, FooterType, Homepage, LegalPage, Product, ProductCategory, Review } from "@/types";
+import { AboutPage, BrochurePage, Category, ContactPageData, EnquiryData, FooterType, Homepage, LegalPageData, Product, ProductCategory, ProductsPageSeo, Review } from "@/types";
 
 
 const API_URL = process.env.API_URL!;
@@ -177,7 +177,7 @@ export async function submitReview(review: {
         email: review.email,
         comment: review.comment,
         rating: review.rating,
-        product: review.productId, // relation by ID
+        product: review.productId,
     }),
   });
 
@@ -194,7 +194,7 @@ export async function submitReview(review: {
 
 export async function getLegalPageContent(
   pageType: string
-): Promise<string | null> {
+): Promise<LegalPageData | null> {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/legal-pages`, {
       method: "GET",
@@ -208,23 +208,39 @@ export async function getLegalPageContent(
       throw new Error("Failed to fetch legal pages");
     }
 
-    const data: {data: LegalPage[]} = await res.json();
+    const data: LegalPageData[] = await res.json();
 
-    const matchedPage = data.data.find(
+    const matchedPage = data.find(
       (page) => page.page_type.toLowerCase() === pageType.toLowerCase()
     );
 
-    return matchedPage ? matchedPage.content : null;
+    return matchedPage || null; // ✅ return whole object
   } catch (error) {
     console.error("Error fetching legal page:", error);
     return null;
   }
 }
 
+
 export async function getBrochurePage(): Promise<BrochurePage> {
   const res = await fetch(`${API_URL}/brochure`, { next: { revalidate: revalidateTime } });
   if (!res.ok) {
     throw new Error(`Failed to fetch brochure: ${res.status} ${res.statusText}`);
+  }
+  return res.json();
+}
+
+export async function getContactPage(): Promise<ContactPageData> {
+  const res = await fetch(`${API_URL}/contact-us`, { next: { revalidate: revalidateTime } });
+  if (!res.ok) {
+    throw new Error(`Failed to fetch contact us page: ${res.status} ${res.statusText}`);
+  }
+  return res.json();
+}
+export async function getProductsSeo(): Promise<ProductsPageSeo> {
+  const res = await fetch(`${API_URL}/products-page`, { next: { revalidate: revalidateTime } });
+  if (!res.ok) {
+    throw new Error(`Failed to fetch products page seo: ${res.status} ${res.statusText}`);
   }
   return res.json();
 }
