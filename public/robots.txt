@@ -1,2 +1,26 @@
 User-agent: *
+
+Allow: /
+
+Disallow: /admin/
+
+Disallow: /api/
+
+Disallow: /cdn-cgi/
+
+Disallow: /_next/
+
+Disallow: /static/
+
+Disallow: /server/
+
+Disallow: /media/
+ 
+Sitemap: https://stonecera.ie/sitemap.xml
+
+User-agent: Bytespider
 Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+

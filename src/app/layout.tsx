@@ -25,9 +25,26 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Stonecera",
   description: "Stonecera",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon.ico",
+  },
+  manifest: "/site.webmanifest",
+  authors: [{ name: "stonecera.ie" }],
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+    },
   },
 };
 
@@ -41,6 +58,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
+        
         <meta name="robots" content="noindex, nofollow" />
         <GoogleAnalytics />
         <Script
