@@ -58,7 +58,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
-        <GoogleAnalytics />
+        {/* <GoogleAnalytics /> */}
         <Script
           id="tawk-to"
           strategy="afterInteractive"
