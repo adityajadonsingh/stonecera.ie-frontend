@@ -41,7 +41,7 @@ export default function BrochureGrid({ data }: { data: BrochurePage }) {
                 link.remove();
                 window.URL.revokeObjectURL(blobUrl);
               }}
-              className="absolute top-3.5 right-1.5 z-20 px-2 py-1 text-white bg-[#b2ac88] rounded-sm hover:bg-white hover:text-[#b2ac88]"
+              className="absolute cursor-pointer top-3.5 right-1.5 z-20 px-2 py-1 text-white bg-[#b2ac88] rounded-sm hover:bg-white hover:text-[#b2ac88]"
             >
               <i className="bi bi-download"></i>
             </button>
