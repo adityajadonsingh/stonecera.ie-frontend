@@ -175,7 +175,7 @@ interface Thumbnail{
   id: number;
   url: string;
 }
-interface Brochure{
+export interface Brochure{
   id: number;
   brochure_name: string;
   pdf: PDF;
