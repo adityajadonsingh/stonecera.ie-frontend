@@ -59,13 +59,17 @@ export default async function RootLayout({
     <html lang="en">
       <head>
         {/* <GoogleAnalytics /> */}
-        <Script id="gtm-script" strategy="afterInteractive">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-RJFSE5KY5E"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-M7ZZPJ7D');
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-RJFSE5KY5E');
           `}
         </Script>
         <Script
@@ -89,14 +93,6 @@ export default async function RootLayout({
       <body
         className={`${lato.variable} ${playfair.variable} relative`}
       >
-         <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-M7ZZPJ7D"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
-        </noscript>
         <Header allCategories={allCategories} phone={footer.phone_number1} email={footer.email1} />
         <main>{children}</main>
         <Footer allCategories={allCategories} phone={footer.phone_number1} email={footer.email1} address={footer.address} instagram_link={footer.instagram_link} facebook_link={footer.facebook_link} linkedin_link={footer.linkedin_link} twitter_link={footer.twitter_link} pinterest_link={footer.pinterest_link} />
