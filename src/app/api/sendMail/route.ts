@@ -134,6 +134,7 @@ export async function POST(request: Request) {
     await transporter.sendMail({
       from: process.env.EMAIL_USER!,
       to: process.env.EMAIL_ADMIN || process.env.EMAIL_USER!,
+      cc: ["kaushik@mpgstones.com", "umang@mpgstone.co.uk","frontend@mpgstone.com"],
       subject: adminSubject,
       html: adminContent,
     });
