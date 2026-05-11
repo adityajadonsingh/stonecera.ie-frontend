@@ -3,14 +3,8 @@ import nodemailer from "nodemailer";
 
 export async function POST(request: Request) {
   try {
-    const {
-      type,
-      name,
-      email,
-      phone_number,
-      message,
-      product_name,
-    } = await request.json();
+    const { type, name, email, phone_number, message, product_name } =
+      await request.json();
 
     // ✅ Validation
     if (
@@ -20,18 +14,22 @@ export async function POST(request: Request) {
     ) {
       return new Response(
         JSON.stringify({ message: "Missing required fields" }),
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     // ✅ Transporter
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.office365.com",
+      port: 587,
+      secure: false,
       auth: {
         user: process.env.EMAIL_USER!,
         pass: process.env.EMAIL_PASS!,
       },
-      tls: { rejectUnauthorized: false },
+      tls: {
+        ciphers: "SSLv3",
+      },
     });
 
     const wrapEmail = (title: string, content: string) => `
@@ -73,7 +71,7 @@ export async function POST(request: Request) {
               <td style="border: 1px solid #ddd; padding: 8px; font-weight: bold; color: #333;">${label}</td>
               <td style="border: 1px solid #ddd; padding: 8px;">${value || "-"}</td>
             </tr>
-          `
+          `,
             )
             .join("")}
         </tbody>
@@ -95,7 +93,7 @@ export async function POST(request: Request) {
             ["Email", email],
             ["Phone Number", phone_number],
             ["Message", message],
-          ])
+          ]),
         );
 
         userSubject = "Thank you for contacting stonecera.ie";
@@ -103,7 +101,7 @@ export async function POST(request: Request) {
           "We’ve Received Your Message",
           `<p style="font-size: 14px;">Hi ${name},</p>
           <p style="font-size: 14px;">Thank you for reaching out to us. Our team will get back to you shortly.</p>
-          <p style="font-size: 14px; margin-top: 20px;">Best regards,<br>stonecera.ie Team</p>`
+          <p style="font-size: 14px; margin-top: 20px;">Best regards,<br>stonecera.ie Team</p>`,
         );
         break;
 
@@ -117,7 +115,7 @@ export async function POST(request: Request) {
             ["Phone Number", phone_number],
             ["Product Name", product_name],
             ["Message", message],
-          ])
+          ]),
         );
 
         userSubject = `Thank you for your enquiry — ${product_name}`;
@@ -125,7 +123,7 @@ export async function POST(request: Request) {
           "We’ve Received Your Product Enquiry",
           `<p style="font-size: 14px;">Hi ${name},</p>
           <p style="font-size: 14px;">Thank you for your interest in <strong>${product_name}</strong>. Our team will contact you soon.</p>
-          <p style="font-size: 14px; margin-top: 20px;">Best regards,<br>stonecera.ie Team</p>`
+          <p style="font-size: 14px; margin-top: 20px;">Best regards,<br>stonecera.ie Team</p>`,
         );
         break;
     }
@@ -134,7 +132,11 @@ export async function POST(request: Request) {
     await transporter.sendMail({
       from: process.env.EMAIL_USER!,
       to: process.env.EMAIL_ADMIN || process.env.EMAIL_USER!,
-      cc: ["kaushik@mpgstones.com", "umang@mpgstone.co.uk","frontend@mpgstone.com"],
+      cc: [
+        "kaushik@mpgstones.com",
+        "umang@mpgstone.co.uk",
+        "frontend@mpgstone.com",
+      ],
       subject: adminSubject,
       html: adminContent,
     });
@@ -149,13 +151,12 @@ export async function POST(request: Request) {
 
     return new Response(
       JSON.stringify({ message: "Emails sent successfully" }),
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
     console.error("Email error:", error);
-    return new Response(
-      JSON.stringify({ message: "Failed to send email" }),
-      { status: 500 }
-    );
+    return new Response(JSON.stringify({ message: "Failed to send email" }), {
+      status: 500,
+    });
   }
 }
