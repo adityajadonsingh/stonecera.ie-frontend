@@ -10,7 +10,7 @@ export default function SchemaInjector({ schemas }: { schemas?: Schema | Schema[
     <>
       {normalizedSchemas.map((schema, i) => (
         <script
-          key={schema.id ?? i}
+          key={`${schema.id ?? "schema"}-${i}-${JSON.stringify(schema.schema_json ?? schema)}`}
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(schema.schema_json ?? schema),

@@ -1,6 +1,6 @@
 // src/lib/api.ts
 
-import { AboutPage, BrochurePage, Category, ContactPageData, EnquiryData, FooterType, Homepage, LegalPageData, Product, ProductCategory, ProductsPageSeo, Review } from "@/types";
+import { AboutPage, BlogComment, BlogDetail, BlogPage, BrochurePage, Category, ContactPageData, EnquiryData, FooterType, Homepage, LegalPageData, Product, ProductCategory, ProductsPageSeo, Review } from "@/types";
 
 
 const API_URL = process.env.API_URL!;
@@ -250,5 +250,74 @@ export async function getProductsSeo(): Promise<ProductsPageSeo> {
   if (!res.ok) {
     throw new Error(`Failed to fetch products page seo: ${res.status} ${res.statusText}`);
   }
+  return res.json();
+}
+
+export async function getBlogs(params?: {
+  page?: number;
+  limit?: number;
+}): Promise<BlogPage> {
+  const qs = new URLSearchParams();
+
+  if (params?.page) qs.set("page", String(params.page));
+  if (params?.limit) qs.set("limit", String(params.limit));
+
+  const res = await fetch(`${API_URL}/blogs?${qs.toString()}`, {
+    next: { revalidate: revalidateTime },
+  });
+
+  if (!res.ok) {
+    return {
+      data: [],
+      meta: { page: 1, pageSize: BLOGS_PER_PAGE, total: 0, pageCount: 0 },
+    };
+  }
+
+  return res.json();
+}
+
+export async function getBlogBySlug(slug: string): Promise<BlogDetail | null> {
+  const res = await fetch(`${API_URL}/blogs/${slug}`, {
+    next: { revalidate: revalidateTime },
+  });
+
+  if (!res.ok) return null;
+
+  return res.json();
+}
+
+export async function getBlogComments(blogId: number): Promise<BlogComment[]> {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog-comments/${blogId}`, {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch blog comments");
+  }
+
+  return res.json();
+}
+
+export async function submitBlogComment(comment: {
+  name: string;
+  email: string;
+  comment: string;
+  blogId: number;
+}) {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog-comments`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: comment.name,
+      email: comment.email,
+      comment: comment.comment,
+      blog: comment.blogId,
+    }),
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to submit blog comment");
+  }
+
   return res.json();
 }

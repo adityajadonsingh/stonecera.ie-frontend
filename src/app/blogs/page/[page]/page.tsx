@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { redirect } from "next/navigation";
 import BlogGrid from "@/components/BlogGrid";
 import BlogPagination from "@/components/BlogPagination";
 import PageBanner from "@/components/PageBanner";
@@ -13,13 +14,27 @@ export const metadata: Metadata = {
   robots: "index, follow",
 };
 
-export default async function BlogsPage() {
-  const { data: blogs, meta } = await getBlogs({ page: 1, limit: 12 });
+export default async function BlogsPaginatedPage({
+  params,
+}: {
+  params: Promise<{ page: string }>;
+}) {
+  const { page } = await params;
+  const pageNum = parseInt(page, 10);
 
+  if (!pageNum || pageNum === 1) {
+    redirect("/blogs/");
+  }
+
+  const { data: blogs, meta } = await getBlogs({ page: pageNum, limit: 12 });
   const bread = [
     {
       slugName: "Blogs",
       slug: "/blogs/",
+    },
+    {
+      slugName: `Page ${pageNum}`,
+      slug: "",
     },
   ];
 
@@ -36,7 +51,7 @@ export default async function BlogsPage() {
       <section className="blogs py-10">
         <div className="container">
           <BlogGrid blogs={blogs} />
-          <BlogPagination totalPages={meta.pageCount} currentPage={1} />
+          <BlogPagination totalPages={meta.pageCount} currentPage={pageNum} />
         </div>
       </section>
     </>

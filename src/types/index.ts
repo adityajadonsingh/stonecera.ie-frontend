@@ -14,6 +14,7 @@ export interface seoTags {
   og_image: string;
   meta_image: string;
   twitter_image: string;
+  schemas?: Schema | Schema[];
 }
 
 export interface Banner {
@@ -200,4 +201,50 @@ export interface Schema {
   id: number;
   name: string;
   schema_json: JSONObject;
+}
+
+export interface BlogImage {
+  url: string;
+  alt: string;
+  width?: number;
+  height?: number;
+}
+
+export interface Blog {
+  id: number;
+  title: string;
+  slug: string;
+  shortDescription: string;
+  content: string;
+  createdOn: string;
+  updatedOn: string;
+  category: {
+    name: string;
+    slug: string;
+  } | null;
+  image: BlogImage | null;
+  seo: seoTags | null;
+}
+
+export interface BlogPage {
+  data: Blog[];
+  meta: {
+    page: number;
+    pageSize: number;
+    total: number;
+    pageCount: number;
+  };
+}
+
+export interface BlogDetail {
+  blog: Blog;
+  recentBlogs: Pick<Blog, "id" | "title" | "slug" | "image">[];
+}
+
+export interface BlogComment {
+  id: number;
+  name: string;
+  comment: string;
+  createdAt: string;
+  updatedAt: string;
 }
